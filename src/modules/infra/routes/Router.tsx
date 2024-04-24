@@ -1,14 +1,17 @@
-import { LoansContainer } from "@/interfaces/containers/LoansContainer";
-import { PublicationsContainer } from "@/interfaces/containers/PublicationsContainer";
-import { UsersContainer } from "@interfaces/containers/UsersContainer";
-import { Root } from "@layouts/Root";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Root } from "@layouts/Root";
+import { PageNotFound } from "@layouts/PageNotFound";
+import { LoansContainer } from "@interfaces/containers/LoansContainer";
+import { UsersContainer } from "@interfaces/containers/UsersContainer";
+import { UserContainer } from "@interfaces/containers/UserContainer";
+import { PublicationsContainer } from "@interfaces/containers/PublicationsContainer";
 
 export function Router() {
   const routes = createBrowserRouter([
     {
       element: <Root />,
       path: "/",
+      errorElement: <PageNotFound />,
       children: [
         {
           element: <PublicationsContainer />,
@@ -17,6 +20,10 @@ export function Router() {
         {
           element: <UsersContainer />,
           path: "/users",
+        },
+        {
+          element: <UserContainer />,
+          path: "/user/:id",
         },
         {
           element: <LoansContainer />,

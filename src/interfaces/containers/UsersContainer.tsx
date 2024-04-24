@@ -13,7 +13,6 @@ export function UsersContainer() {
     setIsSubmited(true);
     findManyUsers({ query })
       .then((response) => {
-        console.log(response);
         setUsers(response);
       })
       .finally(() => setIsLoading(false));

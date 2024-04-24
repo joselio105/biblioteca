@@ -1,5 +1,6 @@
 import { Search as SearchIcon } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { Button } from "./Button";
 
 interface Props {
   labelText: string;
@@ -21,7 +22,7 @@ export function Search({ labelText, placeholder, executeQuery }: Props) {
         {labelText}
       </label>
       <input
-        className="flex-1 bg-stone-700 text-stone-200 p-3 rounded-lg placeholder:text-stone-400 outline-1 outline-blue-900"
+        className="flex-1 bg-stone-700 text-stone-200 p-3 rounded-lg placeholder:text-stone-400 focus:outline-none focus:outline-blue-900"
         type="text"
         id="query"
         name="query"
@@ -29,12 +30,9 @@ export function Search({ labelText, placeholder, executeQuery }: Props) {
         onChange={(event) => setQuery(event.target.value)}
         placeholder={placeholder}
       />
-      <button
-        type="submit"
-        className="bg-blue-900 text-stone-200 px-4 py-3 rounded-lg hover:bg-blue-700 duration-300 flex items-center justify-center gap-3"
-      >
+      <Button type="submit">
         <SearchIcon size={20} /> Buscar
-      </button>
+      </Button>
     </form>
   );
 }

@@ -2,7 +2,7 @@
     "users": [
         {
             "id": "1",
-            "name": "fabriziomachado",
+            "name": "Fabrizio Machado",
             "isAdmin":  false,
             "email": "email@server.xx"
           },
@@ -181,6 +181,55 @@
             "email": "email@server.xx"
           }
     ],
-    "loans": [],
-    "publications": []
+    "loans": [
+      {
+        "id": "1",
+        "loan": 1713982064702,
+        "return": 1716401317526,
+        "returnedAt": 1716401317526,
+        "userId": "1",
+        "user":{
+          "id": "1",
+          "name": "Fabrizio Machado",
+          "isAdmin":  false,
+          "email": "email@server.xx"
+        },
+        "copyId": "1",
+        "copy": {
+          "id": "1",
+          "publicationId": "1",
+          "publication": {
+            "id": "1",
+            "title": "Reinações de Narizinho",
+            "author": "Lobato, Monteiro",
+            "authorCode": "L123r",
+            "themeCode": "28.5"
+          },
+          "registrationCode": "bib.2024.1"
+        }
+      }
+    ],
+    "publications": [
+      {
+        "id": "1",
+        "title": "Reinações de Narizinho",
+        "author": "Lobato, Monteiro",
+        "authorCode": "L123r",
+        "themeCode": "28.5"
+      }
+    ],
+    "copys": [
+      {
+        "id": "1",
+        "publicationId": "1",
+        "publication": {
+          "id": "1",
+          "title": "Reinações de Narizinho",
+          "author": "Lobato, Monteiro",
+          "authorCode": "L123r",
+          "themeCode": "28.5"
+        },
+        "registrationCode": "bib.2024.1"
+      }
+    ]
 }
