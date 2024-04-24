@@ -1,0 +1,186 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "fabriziomachado",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "2",
+            "name": "pedrolopesme",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "3",
+            "name": "MarioRinaldi",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "4",
+            "name": "nic",
+            "isAdmin": false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "5",
+            "name": "israelsantiago",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "6",
+            "name": "esin",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "7",
+            "name": "besopmac",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "8",
+            "name": "NandoCanedo",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "9",
+            "name": "dvinciguerra",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "10",
+            "name": "AlexandreQuintela",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "11",
+            "name": "fhferreira",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "12",
+            "name": "cecez",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "13",
+            "name": "kndrio",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "14",
+            "name": "alexandrehp",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "15",
+            "name": "ciceropablo",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "16",
+            "name": "aronpc",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "17",
+            "name": "toledox82",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "18",
+            "name": "botogoske",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "19",
+            "name": "fatorx",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "20",
+            "name": "cirino",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "21",
+            "name": "adrianabenicio",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "22",
+            "name": "juniorsatheler",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "23",
+            "name": "alessandrogambin",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "24",
+            "name": "mpatricio",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "25",
+            "name": "rafaelscb",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "26",
+            "name": "fuinha",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "27",
+            "name": "thiagoghisi",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "28",
+            "name": "pragmaticivan",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "29",
+            "name": "bernardolm",
+            "isAdmin":  false,
+            "email": "email@server.xx"
+          },
+          {
+            "id": "30",
+            "name": "lincolnbrito",
+            "isAdmin":  true,
+            "email": "email@server.xx"
+          }
+    ],
+    "loans": [],
+    "publications": []
+}
