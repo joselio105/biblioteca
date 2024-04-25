@@ -51,10 +51,14 @@ export function User({ user, loans, isLoading }: Props) {
                 colSpan: 2,
                 label:
                   loan.copy && loan.copy.publication ? (
-                    <div className="flex flex-col gap-8">
-                      {loan.copy.publication.title}
-                      {loan.copy.publication.themeCode}
-                      {loan.copy.publication.authorCode}
+                    <div className="flex gap-2 items-center">
+                      <span>{loan.copy.publication.title}</span>
+                      <span className="text-sm text-stone-400">
+                        {loan.copy.publication.themeCode}
+                      </span>
+                      <span className="text-sm text-stone-400">
+                        {loan.copy.publication.authorCode}
+                      </span>
                     </div>
                   ) : (
                     "...."

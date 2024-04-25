@@ -13,58 +13,39 @@ export function Table({ labels, values }: Props) {
   const cols = labels.length + colspans;
 
   return (
-    <div className="w-full max-w-full overflow-x-auto">
-      <div className="min-w-full w-max">
-        <Row cols={cols} className="bg-blue-900 text-stone-200 font-bold">
-          {labels.map((value, cellKey) => (
-            <Cell key={cellKey} colSpan={value.colSpan}>
-              {value.label}
-            </Cell>
-          ))}
-        </Row>
-        {values.map((valueRow, key) => (
-          <Row key={key} cols={cols}>
-            {valueRow.map((value, cellKey) => (
-              <Cell key={cellKey} colSpan={value.colSpan}>
-                {value.label}
-              </Cell>
+    <div className="min-w-full max-w-full overflow-x-auto border border-stone-700 rounded-lg">
+      <table className="min-w-full w-max">
+        <thead className="w-full">
+          <tr className="w-full bg-blue-900 text-stone-200 font-bold">
+            {labels.map((label, cellKey) => (
+              <th
+                key={cellKey}
+                colSpan={label.colSpan}
+                className={`min-w-[${
+                  (100 * (label.colSpan ?? 1)) / cols + "%"
+                }] border-r border-r-stone-900  py-4 px-3`}
+              >
+                {label.label ?? ""}
+              </th>
             ))}
-          </Row>
-        ))}
-      </div>
+          </tr>
+        </thead>
+        <tbody>
+          {values.map((row, rowKey) => (
+            <tr className="even:bg-stone-700 text-stone-200" key={rowKey}>
+              {row.map((value, cellKey) => (
+                <td
+                  key={cellKey}
+                  colSpan={value.colSpan}
+                  className="border-r border-r-blue-900 py-4 px-3"
+                >
+                  {value.label ?? ""}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  );
-}
-
-interface RowProps {
-  children: ReactNode;
-  className?: string;
-  cols: number;
-}
-function Row({ children, className = "", cols }: RowProps) {
-  const gridCols = `grid-cols-${cols}`;
-
-  return (
-    <div
-      className={`w-full grid ${gridCols} border-0 border-blue-800 even:bg-stone-700 ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-interface CellProps {
-  children?: ReactNode;
-  colSpan?: number;
-}
-function Cell({ children, colSpan = 1 }: CellProps) {
-  const span = `col-span-${colSpan}`;
-
-  return (
-    <span
-      className={`${span} border-r border-r-blue-800 p-2 flex items-center`}
-    >
-      {children}
-    </span>
   );
 }

@@ -36,7 +36,9 @@ export function Users({ executeQuery, isLoading, isSubmited, users }: Props) {
               { label: "Telefone" },
             ]}
             values={users.map((user) => [
-              { label: <Button to={`/user/${user.id}`}>Detalhes</Button> },
+              {
+                label: <Button to={`/user/${user.id}`}>Detalhes</Button>,
+              },
               { label: user.name, colSpan: 2 },
               { label: user.email },
               { label: user.phone },
