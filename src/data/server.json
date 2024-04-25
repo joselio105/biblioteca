@@ -206,7 +206,33 @@
           },
           "registrationCode": "bib.2024.1"
         }
+      },
+      {
+        "id": "1",
+        "loan": 1713982064702,
+        "return": 1716401317526,
+        "userId": "1",
+        "user":{
+          "id": "1",
+          "name": "Fabrizio Machado",
+          "isAdmin":  false,
+          "email": "email@server.xx"
+        },
+        "copyId": "2",
+        "copy": {
+          "id":"2",
+          "publicationId": "2",
+          "publication":{
+            "id": "2",
+            "title": "As aventuras de Pedrinho",
+            "author": "Lobato, Monteiro",
+            "authorCode": "L123a",
+            "themeCode": "28.5"
+          },
+          "registrationCode": "bib.2024.2"
+        }
       }
+
     ],
     "publications": [
       {
@@ -214,6 +240,13 @@
         "title": "Reinações de Narizinho",
         "author": "Lobato, Monteiro",
         "authorCode": "L123r",
+        "themeCode": "28.5"
+      },
+      {
+        "id": "2",
+        "title": "As aventuras de Pedrinho",
+        "author": "Lobato, Monteiro",
+        "authorCode": "L123a",
         "themeCode": "28.5"
       }
     ],
@@ -229,6 +262,18 @@
           "themeCode": "28.5"
         },
         "registrationCode": "bib.2024.1"
+      },
+      {
+        "id":"2",
+        "publicationId": "2",
+        "publication":{
+          "id": "2",
+          "title": "As aventuras de Pedrinho",
+          "author": "Lobato, Monteiro",
+          "authorCode": "L123a",
+          "themeCode": "28.5"
+        },
+        "registrationCode": "bib.2024.2"
       }
     ]
 }

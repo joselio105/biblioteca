@@ -19,7 +19,7 @@ export function Users({ executeQuery, isLoading, isSubmited, users }: Props) {
       <PageHeading>Usuários</PageHeading>
       <Search
         labelText="Usuário"
-        placeholder="Preencha os dados a serem buscados"
+        placeholder="Preencha os dados do usuário a serem buscados"
         executeQuery={executeQuery}
       />
       {isSubmited ? (

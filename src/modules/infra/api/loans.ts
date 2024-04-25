@@ -1,5 +1,6 @@
 import { api } from "@utils/fetchApi";
 import { ILoan } from "@/modules/types/loan";
+import { IQueryString } from "@/modules/types/data";
 
 const endpoint = 'loans'
 
@@ -12,6 +13,19 @@ export async function findAllLoans() {
 
     //     return loan
     // })
+}
+
+export async function findManyLoans(query: IQueryString) {
+    const loans = await api.get<ILoan[]>(endpoint)
+    // console.log(loans, query)
+    return loans.filter(loan=>{
+        const compareUser = loan.user.name.split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
+        const compareTitle = loan.copy?.publication?.title.split(' ').map(splited=>(splited===query.query)).find(compare=>compare)??false
+        const compareRegistration = loan.copy?.registrationCode.split(' ').map(splited=>(splited===query.query)).find(compare=>compare)??false
+
+        return compareRegistration||compareTitle||compareUser
+    })
+
 }
 
 export async function findManyLoansByUserId(userId:string){
