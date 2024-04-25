@@ -4,7 +4,8 @@
             "id": "1",
             "name": "Fabrizio Machado",
             "isAdmin":  false,
-            "email": "email@server.xx"
+            "email": "email@server.xx",
+            "phone": "(99)88877-6655"
           },
           {
             "id": "2",
@@ -208,9 +209,10 @@
         }
       },
       {
-        "id": "1",
+        "id": "2",
         "loan": 1713982064702,
         "return": 1716401317526,
+        "returnedAt": 1716401317526,
         "userId": "1",
         "user":{
           "id": "1",

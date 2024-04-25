@@ -1,9 +1,11 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Root } from "@layouts/Root";
 import { PageNotFound } from "@layouts/PageNotFound";
+import { LoanContainer } from "@interfaces/containers/LoanContainer";
+import { UserContainer } from "@interfaces/containers/UserContainer";
 import { LoansContainer } from "@interfaces/containers/LoansContainer";
 import { UsersContainer } from "@interfaces/containers/UsersContainer";
-import { UserContainer } from "@interfaces/containers/UserContainer";
+import { PublicationContainer } from "@interfaces/containers/PublicationContainer";
 import { PublicationsContainer } from "@interfaces/containers/PublicationsContainer";
 
 export function Router() {
@@ -30,8 +32,16 @@ export function Router() {
           path: "/loans",
         },
         {
+          element: <LoanContainer />,
+          path: "/loan/:id",
+        },
+        {
           element: <PublicationsContainer />,
           path: "/publications",
+        },
+        {
+          element: <PublicationContainer />,
+          path: "/publication/:id",
         },
       ],
     },

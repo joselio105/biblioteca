@@ -13,7 +13,7 @@ export function PageHeader() {
               alt="PIB Floripa logo"
             />
           </Link>
-          <h1 className="text-2xl text-blue-200 font-bold">Biblioteca</h1>
+          <h1 className="text-2xl text-blue-500 font-bold">Biblioteca</h1>
         </div>
       </header>
       <nav className="max-w-7xl w-full mx-auto px-4 lg:px-0 pt-3 flex items-center justify-end gap-3">
