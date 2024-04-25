@@ -37,7 +37,7 @@ export function Loans({ executeQuery, isLoading, isSubmited, loans }: Props) {
             ]}
             values={loans.map(({ id, user, copy, loan, ...props }) => [
               {
-                label: <Button to={`/publication/${id}`}>Detalhes</Button>,
+                label: <Button to={`/loan/${id}`}>Detalhes</Button>,
               },
               {
                 label:

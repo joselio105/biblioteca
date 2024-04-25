@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Publications } from "../interfaces/Publications";
 import { findManyPublications } from "@infra/api/publications";
-import { Ipublication } from "@/modules/types/publication";
+import { IPublication } from "@/modules/types/publication";
 
 export function PublicationsContainer() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmited, setIsSubmited] = useState(false);
-  const [publications, setPublications] = useState<Ipublication[]>(
-    [] as Ipublication[]
+  const [publications, setPublications] = useState<IPublication[]>(
+    [] as IPublication[]
   );
 
   const executeQuery = (query: string) => {

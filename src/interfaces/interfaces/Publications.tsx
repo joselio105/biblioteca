@@ -4,13 +4,13 @@ import { Search } from "@components/Search";
 import { Button } from "@components/Button";
 import { Loading } from "@components/Loading";
 import { PageHeading } from "@components/PageHeading";
-import { Ipublication } from "@/modules/types/publication";
+import { IPublication } from "@/modules/types/publication";
 
 interface Props {
   executeQuery: (value: string) => void;
   isLoading: boolean;
   isSubmited: boolean;
-  publications: Ipublication[];
+  publications: IPublication[];
 }
 
 export function Publications({

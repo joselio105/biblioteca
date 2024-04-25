@@ -1,13 +1,15 @@
-import { Button } from "@/modules/components/Button";
-import { Empty } from "@/modules/components/Empty";
-import { Loading } from "@/modules/components/Loading";
-import { Table } from "@/modules/components/Table";
-import { TextLabeled } from "@/modules/components/TextLabeled";
+import { Check } from "lucide-react";
+import { Empty } from "@components/Empty";
+import { Table } from "@components/Table";
+import { Button } from "@components/Button";
+import { Loading } from "@components/Loading";
+import { PageFooter } from "@components/PageFooter";
+import { PageHeading } from "@components/PageHeading";
+import { PageColumns } from "@components/PageColumns";
+import { TextLabeled } from "@components/TextLabeled";
+import { getDate } from "@utils/datetime";
 import { ILoan } from "@/modules/types/loan";
 import { IUser } from "@/modules/types/user";
-import { getDate } from "@/modules/utils/datetime";
-import { PageHeading } from "@components/PageHeading";
-import { ArrowLeft, Check } from "lucide-react";
 
 interface Props {
   user: IUser;
@@ -19,10 +21,11 @@ export function User({ user, loans, isLoading }: Props) {
   return (
     <>
       <PageHeading>{user.name}</PageHeading>
-      <div className="flex items-center justify-between">
+      <PageColumns>
         <TextLabeled label="Email">{user.email}</TextLabeled>
         <TextLabeled label="Telefone">{user.phone}</TextLabeled>
-      </div>
+      </PageColumns>
+
       {isLoading ? (
         <Loading />
       ) : loans.length === 0 ? (
@@ -74,12 +77,7 @@ export function User({ user, loans, isLoading }: Props) {
           })}
         />
       )}
-      <footer className="flex items-center justify-end mt-4">
-        <Button to="/users">
-          <ArrowLeft size={28} />
-          Voltar
-        </Button>
-      </footer>
+      <PageFooter backTo="/users" />
     </>
   );
 }

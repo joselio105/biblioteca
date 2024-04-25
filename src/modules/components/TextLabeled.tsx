@@ -7,14 +7,8 @@ interface Props {
 
 export function TextLabeled({ label, children }: Props) {
   return children ? (
-    <span className="relative text-lg pt-5">
-      {label ? (
-        <small className="text-stone-400 text-sm absolute top-0 left-0">
-          {label}
-        </small>
-      ) : (
-        ""
-      )}
+    <span className="text-lg flex flex-col gap-2">
+      {label ? <small className="text-stone-400 text-sm">{label}</small> : ""}
       {children}
     </span>
   ) : (
