@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserForm } from "../ui/UserForm";
 import { findUserById, insertUser, updateUser } from "@infra/api/user";
 import { userResolver as resolver } from "@infra/schemas/user";
@@ -9,12 +9,13 @@ import { IData } from "@/modules/types/data";
 
 export function UserFormContainer() {
   const { id } = useParams();
-  const [user, setUser] = useState<IUser>({} as IUser);
+  const navigate = useNavigate();
+  const [user, setUser] = useState<IUser | undefined>();
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
-  const values = id
+  const values = user
     ? {
         name: user.name,
         email: user.email ?? "",
@@ -43,6 +44,12 @@ export function UserFormContainer() {
       .then(() => {
         setFeedbackMessage("Usuário cadastrado com sucesso");
         setSuccess(true);
+        navigate("/users");
+      })
+      .catch((err) => {
+        console.log(err);
+        setSuccess(false);
+        setFeedbackMessage("Falha ao cadastar usuário");
       })
       .finally(() => {
         setIsLoading(false);
@@ -64,6 +71,12 @@ export function UserFormContainer() {
       .then(() => {
         setSuccess(true);
         setFeedbackMessage("Usuário alterado com sucesso");
+        navigate("/user/" + id);
+      })
+      .catch((err) => {
+        console.log(err);
+        setSuccess(false);
+        setFeedbackMessage("Falha ao alterar usuário");
       })
       .finally(() => setIsLoading(false));
   };

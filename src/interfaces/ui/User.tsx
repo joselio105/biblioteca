@@ -3,6 +3,7 @@ import { Empty } from "@components/Empty";
 import { Table } from "@components/Table";
 import { Button } from "@components/Button";
 import { Loading } from "@components/Loading";
+import { PageNav } from "@components/PageNav";
 import { PageFooter } from "@components/PageFooter";
 import { PageHeading } from "@components/PageHeading";
 import { PageColumns } from "@components/PageColumns";
@@ -21,6 +22,12 @@ export function User({ user, loans, isLoading }: Props) {
   return (
     <>
       <PageHeading>{user.name}</PageHeading>
+      <PageNav>
+        <Button isSecondary to={`/userForm/${user.id}`}>
+          Editar
+        </Button>
+      </PageNav>
+
       <PageColumns>
         <TextLabeled label="Email">{user.email}</TextLabeled>
         <TextLabeled label="Telefone">{user.phone}</TextLabeled>

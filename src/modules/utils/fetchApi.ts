@@ -13,7 +13,7 @@ async function get<T>(route: string, queryString = {} as IQueryString, options =
   
     const init: RequestInit = {
       method: 'POST',
-      body: getFormData(data),
+      body: JSON.stringify(data),
       headers,
     };
     return fetch(endpoint, init).then((response) => response.json());

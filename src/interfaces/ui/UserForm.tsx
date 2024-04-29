@@ -26,7 +26,7 @@ export function UserForm({
 }: Props) {
   return (
     <>
-      <PageHeading>Usuário</PageHeading>
+      <PageHeading>{user ? user.name : "Usuário"}</PageHeading>
       <Form
         isLoading={isLoading}
         success={success}

@@ -58,9 +58,11 @@
     },
     {
       "id": "10",
-      "name": "AlexandreQuintela",
-      "isAdmin": false,
-      "email": "email@server.xx"
+      "name": "Alexandre Quintela",
+      "email": "email@server.xx",
+      "phone": "(00)11122-3344",
+      "isActive": "0",
+      "isAdmin": "0"
     },
     {
       "id": "11",
@@ -181,6 +183,22 @@
       "name": "lincolnbrito",
       "isAdmin": true,
       "email": "email@server.xx"
+    },
+    {
+      "id": "7d61",
+      "name": "Ayrton Senna do Brasil",
+      "email": "seninha@email.com",
+      "phone": "(99)99999-9999",
+      "isActive": "0",
+      "isAdmin": "1"
+    },
+    {
+      "id": "d1ba",
+      "name": "Aristides Antunes",
+      "email": "ab@email.com",
+      "phone": "(55)22244-6688",
+      "isActive": "0",
+      "isAdmin": "0"
     }
   ],
   "loans": [
