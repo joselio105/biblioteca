@@ -7,6 +7,7 @@ import { LoansContainer } from "@interfaces/containers/LoansContainer";
 import { UsersContainer } from "@interfaces/containers/UsersContainer";
 import { PublicationContainer } from "@interfaces/containers/PublicationContainer";
 import { PublicationsContainer } from "@interfaces/containers/PublicationsContainer";
+import { UserFormContainer } from "@/interfaces/containers/UserFormContainer";
 
 export function Router() {
   const routes = createBrowserRouter([
@@ -26,6 +27,10 @@ export function Router() {
         {
           element: <UserContainer />,
           path: "/user/:id",
+        },
+        {
+          element: <UserFormContainer />,
+          path: "/userForm/:id?",
         },
         {
           element: <LoansContainer />,
