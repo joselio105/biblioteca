@@ -1,6 +1,7 @@
 import { Search as SearchIcon } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { Button } from "./Button";
+import clsx from "clsx";
 
 interface Props {
   labelText: string;
@@ -18,11 +19,20 @@ export function Search({ labelText, placeholder, executeQuery }: Props) {
 
   return (
     <form onSubmit={submitHandler} className="flex items-center gap-3 mb-5">
-      <label htmlFor="query" className="text-stone-400 text-xs">
+      <label
+        htmlFor="query"
+        className="text-primary-700 dark:text-primary-300 text-xs"
+      >
         {labelText}
       </label>
       <input
-        className="flex-1 bg-stone-700 text-stone-200 p-3 rounded-lg placeholder:text-stone-400 focus:outline-none focus:outline-blue-900"
+        className={clsx(
+          "flex-1 p-3 rounded-lg",
+          "bg-primary-300 placeholder:text-primary-600",
+          "focus:outline-none focus:outline-secondary-100",
+          "dark:bg-primary-700 dark:text-primary-200 dark:placeholder:text-primary-400",
+          "dark:focus:outline-none dark:focus:outline-secondary-900"
+        )}
         type="text"
         id="query"
         name="query"

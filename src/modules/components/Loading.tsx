@@ -1,20 +1,20 @@
-import { Loader2 } from "lucide-react";
+import clsx from "clsx";
+import { LoaderCircle } from "lucide-react";
 
-interface Props {
+export interface Props {
   size?: "sm" | "md" | "lg" | "xl";
 }
 
-export function Loading({ size = "xl" }: Props) {
-  const sizes = {
-    sm: 20,
-    md: 28,
-    lg: 44,
-    xl: 76,
-  };
+export function Loading({ size = "md" }: Props) {
   return (
-    <Loader2
-      size={sizes[size]}
-      className="text-stone-400 animate-spin mx-auto"
+    <LoaderCircle
+      className="animate-spin text-[color:var(--light-color-text-primary)] dark:text-[color:var(--dark-color-text-secondary)]"
+      size={clsx({
+        24: size === "sm",
+        32: size === "md",
+        48: size === "lg",
+        80: size === "xl",
+      })}
     />
   );
 }

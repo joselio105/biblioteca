@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Users } from "../interfaces/Users";
+import { Users } from "../ui/Users";
 import { IUser } from "@/modules/types/user";
 import { findManyUsers } from "@/modules/infra/api/user";
 

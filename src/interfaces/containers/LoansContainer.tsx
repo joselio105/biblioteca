@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Loans } from "../interfaces/Loans";
+import { Loans } from "../ui/Loans";
 import { findManyLoans } from "@infra/api/loans";
 import { ILoan } from "@/modules/types/loan";
 

@@ -1,21 +1,43 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes } from "react";
 import { Link } from "react-router-dom";
+import clsx from "clsx";
+import { Loading } from "./Loading";
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  isSecondary?: boolean;
   to?: string;
+  isLoading?: boolean;
 }
 
-export function Button({ children, to, ...props }: Props) {
-  const style =
-    "bg-blue-900 text-stone-200 text-lg px-4 py-3 rounded-lg hover:bg-blue-700 duration-300 flex items-center justify-center gap-3";
-  return to ? (
-    <Link className={style} to={to}>
-      {children}
-    </Link>
-  ) : (
-    <button className={style} {...props}>
-      {children}
-    </button>
+export function Button({
+  to,
+  isSecondary = false,
+  isLoading = false,
+  ...props
+}: Props) {
+  const buttonStyle = clsx(
+    "min-w-16 p-3 rounded-lg duration-300 border flex items-center justify-center gap-3",
+    {
+      "bg-secondary-900 text-primary-200]": !isSecondary,
+      "border-secondary-700 hover:bg-secondary-700": !isSecondary,
+      "dark:text-secondary-200": !isSecondary,
+      "border-secondary-700 text-primary-700": isSecondary,
+      "hover:text-secondary-700 dark:hover:text-secondary-300": isSecondary,
+      "dark:border-secondary-500 dark:text-primary-300": isSecondary,
+    },
+    props.className
   );
+  if (to) {
+    return (
+      <Link to={to} className={buttonStyle}>
+        {props.children}
+      </Link>
+    );
+  } else {
+    return (
+      <button className={buttonStyle} {...props}>
+        {isLoading ? <Loading size="sm" /> : props.children}
+      </button>
+    );
+  }
 }

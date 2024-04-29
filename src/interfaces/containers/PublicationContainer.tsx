@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Publication } from "../interfaces/Publication";
+import { Publication } from "../ui/Publication";
 import { findPublicationById } from "@infra/api/publications";
 import { IPublication } from "@/modules/types/publication";
 import { ICopy } from "@/modules/types/copy";
