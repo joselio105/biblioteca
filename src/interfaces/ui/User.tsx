@@ -43,7 +43,7 @@ export function User({ user, loans, isLoading }: Props) {
               {
                 label: loan.returnedAt ? (
                   <div className="flex items-center gap-2">
-                    <Check size={28} className="text-green-600" />
+                    <Check size={28} className="text-success-600" />
                     Devolvido em {getDate(loan.returnedAt)}
                   </div>
                 ) : (

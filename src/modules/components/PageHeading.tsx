@@ -12,8 +12,9 @@ export function PageHeading({ className = "", children, type = "h2" }: Props) {
     <h2
       className={clsx(
         {
-          "text-lg text-blue-400 mb-4": type === "h2",
-          "text-blue-300 my-3": type === "h3",
+          "text-lg text-secondary-600 dark:text-secondary-400 mb-4":
+            type === "h2",
+          "text-secondary-700 dark:text-secondary-300 my-3": type === "h3",
         },
         className
       )}

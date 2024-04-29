@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Loan } from "../interfaces/Loan";
+import { Loan } from "../ui/Loan";
 import { findLoanById } from "@infra/api/loans";
 import { ILoan } from "@/modules/types/loan";
 

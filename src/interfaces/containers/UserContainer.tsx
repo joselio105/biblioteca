@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { User } from "../interfaces/User";
+import { User } from "../ui/User";
 import { findUserById } from "@infra/api/user";
 import { IUser } from "@/modules/types/user";
 import { ILoan } from "@/modules/types/loan";

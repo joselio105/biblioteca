@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Publications } from "../interfaces/Publications";
+import { Publications } from "../ui/Publications";
 import { findManyPublications } from "@infra/api/publications";
 import { IPublication } from "@/modules/types/publication";
 
