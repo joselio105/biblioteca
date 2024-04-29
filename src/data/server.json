@@ -1,259 +1,202 @@
 {
-    "users": [
-        {
-            "id": "1",
-            "name": "Fabrizio Machado",
-            "isAdmin":  false,
-            "email": "email@server.xx",
-            "phone": "(99)88877-6655"
-          },
-          {
-            "id": "2",
-            "name": "pedrolopesme",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "3",
-            "name": "MarioRinaldi",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "4",
-            "name": "nic",
-            "isAdmin": false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "5",
-            "name": "israelsantiago",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "6",
-            "name": "esin",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "7",
-            "name": "besopmac",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "8",
-            "name": "NandoCanedo",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "9",
-            "name": "dvinciguerra",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "10",
-            "name": "AlexandreQuintela",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "11",
-            "name": "fhferreira",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "12",
-            "name": "cecez",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "13",
-            "name": "kndrio",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "14",
-            "name": "alexandrehp",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "15",
-            "name": "ciceropablo",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "16",
-            "name": "aronpc",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "17",
-            "name": "toledox82",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "18",
-            "name": "botogoske",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "19",
-            "name": "fatorx",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "20",
-            "name": "cirino",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "21",
-            "name": "adrianabenicio",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "22",
-            "name": "juniorsatheler",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "23",
-            "name": "alessandrogambin",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "24",
-            "name": "mpatricio",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "25",
-            "name": "rafaelscb",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "26",
-            "name": "fuinha",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "27",
-            "name": "thiagoghisi",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "28",
-            "name": "pragmaticivan",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "29",
-            "name": "bernardolm",
-            "isAdmin":  false,
-            "email": "email@server.xx"
-          },
-          {
-            "id": "30",
-            "name": "lincolnbrito",
-            "isAdmin":  true,
-            "email": "email@server.xx"
-          }
-    ],
-    "loans": [
-      {
+  "users": [
+    {
+      "id": "1",
+      "name": "Fabrizio Machado da Silva",
+      "email": "email@server.xx",
+      "phone": "(99)88877-6655",
+      "isActive": "0",
+      "isAdmin": "0"
+    },
+    {
+      "id": "2",
+      "name": "pedrolopesme",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "3",
+      "name": "MarioRinaldi",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "4",
+      "name": "nic",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "5",
+      "name": "israelsantiago",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "6",
+      "name": "esin",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "7",
+      "name": "besopmac",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "8",
+      "name": "NandoCanedo",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "9",
+      "name": "dvinciguerra",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "10",
+      "name": "AlexandreQuintela",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "11",
+      "name": "fhferreira",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "12",
+      "name": "cecez",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "13",
+      "name": "kndrio",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "14",
+      "name": "alexandrehp",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "15",
+      "name": "ciceropablo",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "16",
+      "name": "aronpc",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "17",
+      "name": "toledox82",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "18",
+      "name": "botogoske",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "19",
+      "name": "fatorx",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "20",
+      "name": "cirino",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "21",
+      "name": "adrianabenicio",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "22",
+      "name": "juniorsatheler",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "23",
+      "name": "alessandrogambin",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "24",
+      "name": "mpatricio",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "25",
+      "name": "rafaelscb",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "26",
+      "name": "fuinha",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "27",
+      "name": "thiagoghisi",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "28",
+      "name": "pragmaticivan",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "29",
+      "name": "bernardolm",
+      "isAdmin": false,
+      "email": "email@server.xx"
+    },
+    {
+      "id": "30",
+      "name": "lincolnbrito",
+      "isAdmin": true,
+      "email": "email@server.xx"
+    }
+  ],
+  "loans": [
+    {
+      "id": "1",
+      "loan": 1713982064702,
+      "return": 1716401317526,
+      "userId": "1",
+      "user": {
         "id": "1",
-        "loan": 1713982064702,
-        "return": 1716401317526,
-        "userId": "1",
-        "user":{
-          "id": "1",
-          "name": "Fabrizio Machado",
-          "isAdmin":  false,
-          "email": "email@server.xx"
-        },
-        "copyId": "1",
-        "copy": {
-          "id": "1",
-          "publicationId": "1",
-          "publication": {
-            "id": "1",
-            "title": "Reinações de Narizinho",
-            "author": "Lobato, Monteiro",
-            "authorCode": "L123r",
-            "themeCode": "28.5"
-          },
-          "registrationCode": "bib.2024.1"
-        }
+        "name": "Fabrizio Machado",
+        "isAdmin": false,
+        "email": "email@server.xx"
       },
-      {
-        "id": "2",
-        "loan": 1713982064702,
-        "return": 1716401317526,
-        "returnedAt": 1716401317526,
-        "userId": "1",
-        "user":{
-          "id": "1",
-          "name": "Fabrizio Machado",
-          "isAdmin":  false,
-          "email": "email@server.xx"
-        },
-        "copyId": "2",
-        "copy": {
-          "id":"2",
-          "publicationId": "2",
-          "publication":{
-            "id": "2",
-            "title": "As aventuras de Pedrinho",
-            "author": "Lobato, Monteiro",
-            "authorCode": "L123a",
-            "themeCode": "28.5"
-          },
-          "registrationCode": "bib.2024.2"
-        }
-      }
-
-    ],
-    "publications": [
-      {
-        "id": "1",
-        "title": "Reinações de Narizinho",
-        "author": "Lobato, Monteiro",
-        "authorCode": "L123r",
-        "themeCode": "28.5"
-      },
-      {
-        "id": "2",
-        "title": "As aventuras de Pedrinho",
-        "author": "Lobato, Monteiro",
-        "authorCode": "L123a",
-        "themeCode": "28.5"
-      }
-    ],
-    "copys": [
-      {
+      "copyId": "1",
+      "copy": {
         "id": "1",
         "publicationId": "1",
         "publication": {
@@ -264,11 +207,25 @@
           "themeCode": "28.5"
         },
         "registrationCode": "bib.2024.1"
+      }
+    },
+    {
+      "id": "2",
+      "loan": 1713982064702,
+      "return": 1716401317526,
+      "returnedAt": 1716401317526,
+      "userId": "1",
+      "user": {
+        "id": "1",
+        "name": "Fabrizio Machado",
+        "isAdmin": false,
+        "email": "email@server.xx"
       },
-      {
-        "id":"2",
+      "copyId": "2",
+      "copy": {
+        "id": "2",
         "publicationId": "2",
-        "publication":{
+        "publication": {
           "id": "2",
           "title": "As aventuras de Pedrinho",
           "author": "Lobato, Monteiro",
@@ -277,6 +234,49 @@
         },
         "registrationCode": "bib.2024.2"
       }
-    ],
-    "bookings":[]
+    }
+  ],
+  "publications": [
+    {
+      "id": "1",
+      "title": "Reinações de Narizinho",
+      "author": "Lobato, Monteiro",
+      "authorCode": "L123r",
+      "themeCode": "28.5"
+    },
+    {
+      "id": "2",
+      "title": "As aventuras de Pedrinho",
+      "author": "Lobato, Monteiro",
+      "authorCode": "L123a",
+      "themeCode": "28.5"
+    }
+  ],
+  "copys": [
+    {
+      "id": "1",
+      "publicationId": "1",
+      "publication": {
+        "id": "1",
+        "title": "Reinações de Narizinho",
+        "author": "Lobato, Monteiro",
+        "authorCode": "L123r",
+        "themeCode": "28.5"
+      },
+      "registrationCode": "bib.2024.1"
+    },
+    {
+      "id": "2",
+      "publicationId": "2",
+      "publication": {
+        "id": "2",
+        "title": "As aventuras de Pedrinho",
+        "author": "Lobato, Monteiro",
+        "authorCode": "L123a",
+        "themeCode": "28.5"
+      },
+      "registrationCode": "bib.2024.2"
+    }
+  ],
+  "bookings": []
 }
