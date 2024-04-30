@@ -10,7 +10,7 @@ export function PageColumns({ children, columns = 2 }: Props) {
   return (
     <div
       className={clsx(
-        `bg-primary-300 dark:bg-primary-700 p-3 rounded-lg mb-4 grid`,
+        `bg-primary-300 dark:bg-primary-800 p-3 rounded-lg mb-4 grid gap-3`,
         {
           "grid-cols-1": columns === 1,
           "grid-cols-2": columns === 2,

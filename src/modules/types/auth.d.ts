@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { IUser } from "./user";
 
 export interface IAuthContextData {
-    signIn: (credentials: ICredentials)=>Promise<IAuthentication>
+    signIn: (credentials: ICredentials)=>Promise<ISigIn>
     signOut: ()=>void
     refresh: (token:string)=>Promise<IAuthentication>
     isSigned: boolean
@@ -14,6 +14,13 @@ export interface IAuthentication {
     token: string
     expiration: number
 }
+
+export interface ISigIn {
+    message: string;
+    isSigned: boolean;
+    user?: IUser;
+    error?: string;
+  }
 
 export interface ICredentials {
     email: string

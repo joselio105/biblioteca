@@ -6,10 +6,16 @@ export interface Props {
   title: string;
   radios: IInptRadio[];
   errorMessage?: string;
+  canRender?: boolean;
 }
 
-export function FieldInputRadio({ title, errorMessage, radios }: Props) {
-  return (
+export function FieldInputRadio({
+  title,
+  errorMessage,
+  radios,
+  canRender = true,
+}: Props) {
+  return canRender ? (
     <FieldContainer labelText={title} errorMessage={errorMessage}>
       <div className="flex items-center gap-2">
         {radios.map((radioProps, key) => {
@@ -20,6 +26,8 @@ export function FieldInputRadio({ title, errorMessage, radios }: Props) {
         })}
       </div>
     </FieldContainer>
+  ) : (
+    <input type="hidden" {...radios[0].inputProps} />
   );
 }
 
@@ -27,11 +35,23 @@ export interface IInptRadio {
   labelText: string;
   labelIcon?: ReactNode;
   inputProps: InputHTMLAttributes<HTMLInputElement>;
+  canRender?: boolean;
 }
 
-function Radio({ labelText, labelIcon, inputProps }: IInptRadio) {
-  return (
-    <div className="flex items-center gap-2 bg-primary-700 text-primary-400 mb-3 rounded shadow focus:outline-none">
+function Radio({
+  labelText,
+  labelIcon,
+  inputProps,
+  canRender = true,
+}: IInptRadio) {
+  return canRender ? (
+    <div
+      className={clsx(
+        "flex items-center gap-2 mb-3 rounded shadow focus:outline-none",
+        "bg-primary-900 text-primary-400"
+        // "dark:bg-primary-900-900 dark:text-primbg-primary-900-200"
+      )}
+    >
       <input type="radio" className="sr-only peer" {...inputProps} />
       <label
         className={clsx(
@@ -52,5 +72,7 @@ function Radio({ labelText, labelIcon, inputProps }: IInptRadio) {
         {labelText}
       </label>
     </div>
+  ) : (
+    <input type="hidden" {...inputProps} />
   );
 }

@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { UserForm } from "../ui/UserForm";
+import { LoanForm } from "../ui/LoanForm";
 import { findUserById, insertUser, updateUser } from "@infra/api/user";
 import { userResolver as resolver } from "@infra/schemas/user";
 import { IUser, IUserForm } from "@/modules/types/user";
 import { IData } from "@/modules/types/data";
-import { useAuth } from "@/modules/hooks/useAuth";
 
-export function UserFormContainer() {
+export function LoanFormContainer() {
   const { id } = useParams();
-  const {
-    authentication: { user: userLogged },
-  } = useAuth();
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser | undefined>();
   const [isLoading, setIsLoading] = useState(false);
@@ -100,9 +96,8 @@ export function UserFormContainer() {
   }, [id]);
 
   return (
-    <UserForm
+    <LoanForm
       user={user}
-      userLogged={userLogged}
       isLoading={isLoading}
       success={success}
       feedbackMessage={feedbackMessage}

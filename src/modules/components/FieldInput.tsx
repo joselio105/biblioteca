@@ -7,6 +7,7 @@ export interface Props {
   errorMessage?: string;
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   listOptions?: string[];
+  canRender?: boolean;
 }
 
 export function FieldInput({
@@ -15,8 +16,9 @@ export function FieldInput({
   errorMessage,
   inputProps,
   listOptions,
+  canRender = true,
 }: Props) {
-  return (
+  return canRender ? (
     <FieldContainer
       fieldId={inputProps.id ?? ""}
       labelText={labelText}
@@ -46,5 +48,7 @@ export function FieldInput({
         )}
       </div>
     </FieldContainer>
+  ) : (
+    <input type="hidden" {...inputProps} />
   );
 }
