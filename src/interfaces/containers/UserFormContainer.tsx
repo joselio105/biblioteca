@@ -4,9 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { UserForm } from "../ui/UserForm";
 import { findUserById, insertUser, updateUser } from "@infra/api/user";
 import { userResolver as resolver } from "@infra/schemas/user";
-import { IUser, IUserForm } from "@/modules/types/user";
+import { useAuth } from "@hooks/useAuth";
 import { IData } from "@/modules/types/data";
-import { useAuth } from "@/modules/hooks/useAuth";
+import { IUser, IUserForm } from "@/modules/types/user";
 
 export function UserFormContainer() {
   const { id } = useParams();
@@ -14,25 +14,28 @@ export function UserFormContainer() {
     authentication: { user: userLogged },
   } = useAuth();
   const navigate = useNavigate();
-  const [user, setUser] = useState<IUser | undefined>();
+  const [user, setUser] = useState<IUser | undefined>({} as IUser);
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
-  const values = user
+  const values = id
     ? {
-        name: user.name,
-        email: user.email ?? "",
-        phone: user.phone ?? "",
-        isActive: user.isActive ? "1" : "0",
-        isAdmin: user.isAdmin ? "1" : "0",
+        name: user?.name ?? "",
+        email: user?.email ?? "",
+        phone: user?.phone ?? "",
+        isActive: user?.isActive === true ? "1" : "0",
+        isAdmin: user?.isAdmin === true ? "1" : "0",
       }
     : undefined;
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm({ resolver, values });
+    setValue,
+    watch,
+    control,
+  } = useForm<IUserForm>({ resolver, values });
 
   const insert = (user: IUserForm) => {
     const data: IData = {
@@ -66,8 +69,8 @@ export function UserFormContainer() {
       name: user.name,
       email: user.email,
       phone: user.phone,
-      isActive: user.isActive,
-      isAdmin: user.isAdmin,
+      isActive: user.isActive === "1",
+      isAdmin: user.isAdmin === "1",
     };
 
     setIsLoading(true);
@@ -90,14 +93,16 @@ export function UserFormContainer() {
   };
 
   const fetchUser = (id: string) => {
-    findUserById(id).then((response) => setUser(response));
+    findUserById(id).then(({ id, name, email, phone, isActive, isAdmin }) =>
+      setUser({ id, name, email, phone, isActive, isAdmin })
+    );
   };
 
   useEffect(() => {
     if (id) {
       fetchUser(id);
     }
-  }, [id]);
+  }, [id, isLoading]);
 
   return (
     <UserForm
@@ -108,6 +113,9 @@ export function UserFormContainer() {
       feedbackMessage={feedbackMessage}
       handleSubmit={handleSubmit(handlerSubmit)}
       registers={register}
+      setValue={setValue}
+      watch={watch}
+      control={control}
       errors={errors}
     />
   );

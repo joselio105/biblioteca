@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import { useAuth } from "@hooks/useAuth";
 import { Button } from "@components/Button";
 import { PageHeading } from "@components/PageHeading";
@@ -10,13 +10,20 @@ export function LoginContainer() {
 
   const handleClick = () => {
     const credentials: ICredentials = {
-      email: "clauss@gmail.com",
+      email: "seninha@email.com",
       password: "123",
     };
 
     signIn(credentials)
-      .then((response) => {
-        navigate("/user/" + response.user?.id);
+      .then(({ user }) => {
+        if (user) {
+          const destin = `/user/${user.id}`;
+          console.log(destin);
+          return redirect(destin);
+          // navigate("/user/" + response.user.id);
+        } else {
+          console.log("Falha ao realizar o login");
+        }
       })
       .catch((err) => alert(err));
   };

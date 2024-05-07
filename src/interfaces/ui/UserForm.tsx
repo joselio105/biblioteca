@@ -1,12 +1,19 @@
-import { FieldInput } from "@/modules/components/FieldInput";
-import { FieldInputRadio } from "@/modules/components/FieldInputRadio";
-import { PageColumns } from "@/modules/components/PageColumns";
-import { IUser, IUserForm } from "@/modules/types/user";
-import { Form } from "@components/Form";
-import { PageHeading } from "@components/PageHeading";
-import { Check, X } from "lucide-react";
 import { FormEventHandler } from "react";
-import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { Check, X } from "lucide-react";
+import { Form } from "@components/Form";
+import { FieldInput } from "@components/FieldInput";
+import { PageHeading } from "@components/PageHeading";
+import { PageColumns } from "@components/PageColumns";
+import { FieldInputRadio } from "@components/FieldInputRadio";
+import { IUser, IUserForm } from "@/modules/types/user";
+import { TSetValue } from "@/modules/types/fieldInputRadio";
+import {
+  Control,
+  FieldErrors,
+  UseFormRegister,
+  UseFormSetValue,
+  UseFormWatch,
+} from "react-hook-form";
 
 interface Props {
   user?: IUser;
@@ -16,6 +23,9 @@ interface Props {
   feedbackMessage: string;
   handleSubmit: FormEventHandler<HTMLFormElement>;
   registers: UseFormRegister<IUserForm>;
+  setValue: UseFormSetValue<IUserForm>;
+  watch: UseFormWatch<IUserForm>;
+  control: Control<IUserForm>;
   errors: FieldErrors<IUserForm>;
 }
 
@@ -27,6 +37,8 @@ export function UserForm({
   feedbackMessage,
   handleSubmit,
   registers,
+  watch,
+  setValue,
   errors,
 }: Props) {
   return (
@@ -37,7 +49,7 @@ export function UserForm({
         success={success}
         feedbackMessage={feedbackMessage}
         handleSubmit={handleSubmit}
-        backTo={user ? "/user/" + user.id : "/users"}
+        backTo={user?.id ? "/user/" + user.id : "/users"}
       >
         <FieldInput
           labelText="Nome"
@@ -67,49 +79,39 @@ export function UserForm({
           <FieldInputRadio
             title="Usuário ativo"
             errorMessage={errors.isActive?.message}
+            defaultValue={watch("isActive")}
+            register={registers("isActive")}
+            setValue={setValue}
             radios={[
               {
                 labelText: "Não",
-                labelIcon: <X className="text-error-600-600" size={28} />,
-                inputProps: {
-                  id: "isActive0",
-                  value: "0",
-                  ...registers("isActive"),
-                },
+                labelIcon: <X className="text-error-600" size={28} />,
+                value: "0",
               },
               {
                 labelText: "Sim",
                 labelIcon: <Check className="text-success-600" size={28} />,
-                inputProps: {
-                  id: "isActive1",
-                  value: "1",
-                  ...registers("isActive"),
-                },
+                value: "1",
               },
             ]}
           />
           <FieldInputRadio
-            title="Usuário Admin"
-            errorMessage={errors.isAdmin?.message}
             canRender={userLogged.isAdmin}
+            title="Usuário administrador"
+            errorMessage={errors.isAdmin?.message}
+            defaultValue={watch("isAdmin")}
+            register={registers("isAdmin")}
+            setValue={setValue as TSetValue}
             radios={[
               {
                 labelText: "Não",
-                labelIcon: <X className="text-error-600-600" size={28} />,
-                inputProps: {
-                  id: "isAdmin0",
-                  value: "0",
-                  ...registers("isAdmin"),
-                },
+                labelIcon: <X className="text-error-600" size={28} />,
+                value: "0",
               },
               {
                 labelText: "Sim",
                 labelIcon: <Check className="text-success-600" size={28} />,
-                inputProps: {
-                  id: "isAdmin1",
-                  value: "1",
-                  ...registers("isAdmin"),
-                },
+                value: "1",
               },
             ]}
           />

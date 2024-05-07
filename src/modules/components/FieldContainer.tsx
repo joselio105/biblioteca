@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { ReactNode } from "react";
 
 interface Props {
@@ -13,7 +14,14 @@ export function FieldContainer({
   errorMessage,
 }: Props) {
   return (
-    <div className="relative w-full flex flex-col p-3 gap-1 bg-primary-700 border border-primary-400 rounded-lg focus-within:ring-2 ring-secondary-500">
+    <div
+      className={clsx(
+        "relative w-full flex flex-col p-3 gap-1 rounded-lg border focus-within:ring-2 border-primary-500",
+        "bg-primary-300",
+        "dark:bg-primary-700",
+        "ring-secondary-500"
+      )}
+    >
       {labelText ? (
         <label
           className="absolute -top-2 left-3 text-xs text-primary-400 bg-primary-700 rounded px-2"

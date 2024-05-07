@@ -1,5 +1,5 @@
 export interface IData {
-    [key: string]: File | string | null; // | boolean | number;
+    [key: string]: File | string | null | boolean | number;
   }
   
   export interface IQueryString {
