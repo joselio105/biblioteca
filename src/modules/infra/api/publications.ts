@@ -1,5 +1,5 @@
 import { api } from "@utils/fetchApi";
-import { IQueryString } from "@/modules/types/data";
+import { IData, IQueryString } from "@/modules/types/data";
 import { IPublication } from "@/modules/types/publication";
 
 const endpoint = 'publications'
@@ -18,4 +18,12 @@ export async function findManyPublications(query:IQueryString) {
 
 export async function findPublicationById(id: string) {
     return api.get<IPublication>(`${endpoint}/${id}`)
+}
+
+export async function insertPublication(publication: IData){
+    return api.post(endpoint, publication)
+}
+
+export async function updatePublication(publication: IData) {
+    return api.put(`${endpoint}/${publication.id}`, publication)
 }

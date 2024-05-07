@@ -8,7 +8,7 @@ import { ICopy } from "@/modules/types/copy";
 import { Loading } from "@/modules/components/Loading";
 
 interface Props {
-  publication: IPublication;
+  publication?: IPublication;
   copys: ICopy[];
   isLoading: boolean;
 }
@@ -18,7 +18,7 @@ export function Publication({ publication, copys, isLoading }: Props) {
     <>
       <PageHeading>{publication.title}</PageHeading>
       <PageColumns>
-        <TextLabeled label="Autor">{publication.author}</TextLabeled>
+        <TextLabeled label="Autor">{publication.authors[0]}</TextLabeled>
         <TextLabeled label="Código  Cutter">
           {publication.authorCode}
         </TextLabeled>

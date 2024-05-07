@@ -1,22 +1,25 @@
 import { FieldInput } from "@/modules/components/FieldInput";
-import { IUser, IUserForm } from "@/modules/types/user";
+import { IPublication, IPublicationForm } from "@/modules/types/publication";
+import { IUser } from "@/modules/types/user";
 import { Form } from "@components/Form";
 import { PageHeading } from "@components/PageHeading";
 import { FormEventHandler } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 interface Props {
-  user?: IUser;
+  userLogged: IUser;
+  publication?: IPublication;
   isLoading: boolean;
   success: boolean;
   feedbackMessage: string;
   handleSubmit: FormEventHandler<HTMLFormElement>;
-  registers: UseFormRegister<IUserForm>;
-  errors: FieldErrors<IUserForm>;
+  registers: UseFormRegister<IPublicationForm>;
+  errors: FieldErrors<IPublicationForm>;
 }
 
 export function PublicationForm({
-  user,
+  userLogged,
+  publication,
   isLoading,
   success,
   feedbackMessage,
@@ -26,15 +29,20 @@ export function PublicationForm({
 }: Props) {
   return (
     <>
-      <PageHeading>{user ? user.name : "Usuário"}</PageHeading>
+      <PageHeading>
+        {publication ? publication.title : "Publicação"}
+      </PageHeading>
       <Form
         isLoading={isLoading}
         success={success}
         feedbackMessage={feedbackMessage}
         handleSubmit={handleSubmit}
-        backTo={user ? "/user/" + user.id : "/users"}
+        backTo={
+          publication ? "/publication/" + publication.id : "/publications"
+        }
       >
-        <FieldInput
+        <>...</>
+        {/* <FieldInput
           labelText="Nome"
           inputProps={{
             placeholder: "Informe o nome do usuário",
@@ -59,7 +67,7 @@ export function PublicationForm({
           errorMessage={errors.phone?.message}
         />
         <input type="hidden" value="0" {...registers("isActive")} />
-        <input type="hidden" value="0" {...registers("isAdmin")} />
+        <input type="hidden" value="0" {...registers("isAdmin")} /> */}
       </Form>
     </>
   );
