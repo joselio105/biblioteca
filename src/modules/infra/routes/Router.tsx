@@ -79,7 +79,7 @@ export function Router() {
         },
         {
           element: <PublicationFormContainer />,
-          path: "/publicationForm/:id?",
+          path: "/publicationForm/:id?/:isbn?",
           loader: (props) => protectedLoader(isSigned, props),
         },
         {

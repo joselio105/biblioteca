@@ -1,6 +1,6 @@
 import { api } from "@utils/fetchApi";
 import { IData, IQueryString } from "@/modules/types/data";
-import { IPublication } from "@/modules/types/publication";
+import { IPublication, IPublicationIsbn } from "@/modules/types/publication";
 
 const endpoint = 'publications'
 
@@ -8,8 +8,8 @@ export async function findManyPublications(query:IQueryString) {
     const publications = await api.get<IPublication[]>(endpoint)
     return publications.filter(publication => {
         const compareTitle = publication.title.split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
-        const compareAuthor = publication.author ? 
-        publication.author.replace(',', '').split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
+        const compareAuthor = publication.authors ? 
+        publication.authors.join('; ').replace(',', '').split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
         :false
 
         return compareTitle||compareAuthor
@@ -26,4 +26,9 @@ export async function insertPublication(publication: IData){
 
 export async function updatePublication(publication: IData) {
     return api.put(`${endpoint}/${publication.id}`, publication)
+}
+
+export async function findPublicationByIsbn(isbn: string):Promise<IPublicationIsbn>{
+    return fetch(`https://brasilapi.com.br/api/isbn/v1/${isbn}`)
+          .then((response) => response.json())
 }

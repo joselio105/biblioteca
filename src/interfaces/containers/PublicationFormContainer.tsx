@@ -2,18 +2,28 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { publicationResolver as resolver } from "@infra/schemas/publication";
-import { IData } from "@/modules/types/data";
 import { useAuth } from "@/modules/hooks/useAuth";
 import { IPublication, IPublicationForm } from "@/modules/types/publication";
 import {
   findPublicationById,
+  findPublicationByIsbn,
   insertPublication,
   updatePublication,
 } from "@/modules/infra/api/publications";
 import { PublicationForm } from "../ui/PublicationForm";
+import {
+  formToData,
+  isbnToMain,
+  mainToForm,
+} from "@/modules/infra/mappers/publicationMappers";
+
+// TODO: - Gerar código Cutter
+// TODO: - Validar autor(es) -> Sobrenome, Nome
+// TODO: - Gerar mais Campos de autores
+// TODO: - Corrigir Número de páginas
 
 export function PublicationFormContainer() {
-  const { id } = useParams();
+  const { id, isbn } = useParams();
   const {
     authentication: { user: userLogged },
   } = useAuth();
@@ -23,27 +33,17 @@ export function PublicationFormContainer() {
   const [success, setSuccess] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
-  const values = id
-    ? ({
-        title: publication?.title,
-        authorCode: publication?.authorCode,
-        themeCode: publication?.themeCode,
-        authors: publication?.authors,
-      } as IPublicationForm)
-    : undefined;
+  const values = id ? mainToForm(publication) : undefined;
   const {
     handleSubmit,
     register,
+    watch,
     formState: { errors },
   } = useForm({ resolver, values });
 
   const insert = (publication: IPublicationForm) => {
-    const data: IData = {
-      title: publication.title,
-      authorCode: publication.authorCode,
-      themeCode: publication.themeCode,
-      // authors: publication.authors,
-    };
+    const data = formToData(publication);
+    console.log(data);
 
     setIsLoading(true);
     insertPublication(data)
@@ -63,13 +63,9 @@ export function PublicationFormContainer() {
   };
 
   const update = (id: string, publication: IPublicationForm) => {
-    const data: IData = {
-      id: id,
-      title: publication.title,
-      authorCode: publication.authorCode,
-      themeCode: publication.themeCode,
-      // authors: publication?.authors,
-    };
+    const data = formToData(publication, id);
+    console.log(data);
+
     setIsLoading(true);
     updatePublication(data)
       .then(() => {
@@ -86,18 +82,31 @@ export function PublicationFormContainer() {
   };
 
   const handlerSubmit = (value: IPublicationForm) => {
-    id ? update(id, value) : insert(value);
+    console.log("submit");
+
+    id && id !== "NOT" ? update(id, value) : insert(value);
   };
 
-  const fetchUser = (id: string) => {
+  const fetchPublication = (id: string) => {
     findPublicationById(id).then((response) => setPublication(response));
   };
 
+  const fetchPublicationByISBN = (isbn: string) => {
+    findPublicationByIsbn(isbn)
+      .then((publication) => {
+        setPublication(isbnToMain(publication, userLogged.id));
+      })
+      .catch((err) => setFeedbackMessage(err.message));
+  };
+
   useEffect(() => {
-    if (id) {
-      fetchUser(id);
+    if (id && id !== "NOT") {
+      fetchPublication(id);
     }
-  }, [id]);
+    if (isbn) {
+      fetchPublicationByISBN(isbn);
+    }
+  }, [id, isbn]);
 
   return (
     <PublicationForm
@@ -106,8 +115,9 @@ export function PublicationFormContainer() {
       isLoading={isLoading}
       success={success}
       feedbackMessage={feedbackMessage}
-      handleSubmit={handleSubmit(handlerSubmit)}
+      handleSubmit={handleSubmit(handlerSubmit, (err) => console.log(err))}
       registers={register}
+      watch={watch}
       errors={errors}
     />
   );

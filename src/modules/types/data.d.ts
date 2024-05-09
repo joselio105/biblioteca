@@ -17,3 +17,5 @@ export interface IData {
     backToOnYes: string;
     id: string;
   }
+
+  export type TLanguage = 'pt' | 'en' | 'es'

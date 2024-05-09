@@ -268,6 +268,24 @@
       "author": "Lobato, Monteiro",
       "authorCode": "L123a",
       "themeCode": "28.5"
+    },
+    {
+      "id": "a65e",
+      "title": "AS CRÔNICAS DE  NÁRNIA",
+      "subTitle": "",
+      "authorCode": "",
+      "themeCode": "270",
+      "authors": "",
+      "publisher": "Editora WMF Martins Fontes",
+      "pubDate": "null",
+      "pubPlace": "",
+      "originalLanguage": "pt",
+      "subjects": "",
+      "isbn": "9788578270698",
+      "createdAt": 1715219850011,
+      "updatedAt": 1715219850011,
+      "createdBy": "7d61",
+      "updatedBy": "7d61"
     }
   ],
   "copys": [

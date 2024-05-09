@@ -8,6 +8,7 @@ export interface Props {
   inputProps: InputHTMLAttributes<HTMLInputElement>;
   listOptions?: string[];
   canRender?: boolean;
+  className?: string;
 }
 
 export function FieldInput({
@@ -17,12 +18,14 @@ export function FieldInput({
   inputProps,
   listOptions,
   canRender = true,
+  className,
 }: Props) {
   return canRender ? (
     <FieldContainer
       fieldId={inputProps.id ?? ""}
       labelText={labelText}
       errorMessage={errorMessage}
+      className={className}
     >
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-primary-200">
         {icon ? icon : ""}

@@ -6,12 +6,14 @@ interface Props {
   labelText?: string;
   fieldId?: string;
   errorMessage?: string;
+  className?: string;
 }
 export function FieldContainer({
   children,
   labelText,
   fieldId,
   errorMessage,
+  className,
 }: Props) {
   return (
     <div
@@ -19,7 +21,8 @@ export function FieldContainer({
         "relative w-full flex flex-col p-3 gap-1 rounded-lg border focus-within:ring-2 border-primary-500",
         "bg-primary-300",
         "dark:bg-primary-700",
-        "ring-secondary-500"
+        "ring-secondary-500",
+        className
       )}
     >
       {labelText ? (
