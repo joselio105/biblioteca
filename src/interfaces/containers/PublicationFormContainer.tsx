@@ -17,9 +17,12 @@ import {
   mainToForm,
 } from "@/modules/infra/mappers/publicationMappers";
 
+// TODO: - Validação do(s) autor(es):
+//        - Sem autor
+//        - Um autor
+//        - Mais de um autor
+
 // TODO: - Gerar código Cutter
-// TODO: - Validar autor(es) -> Sobrenome, Nome
-// TODO: - Gerar mais Campos de autores
 // TODO: - Corrigir Número de páginas
 
 export function PublicationFormContainer() {
@@ -82,8 +85,6 @@ export function PublicationFormContainer() {
   };
 
   const handlerSubmit = (value: IPublicationForm) => {
-    console.log("submit");
-
     id && id !== "NOT" ? update(id, value) : insert(value);
   };
 

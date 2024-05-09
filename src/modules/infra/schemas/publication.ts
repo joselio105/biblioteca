@@ -1,15 +1,14 @@
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-const regexAuthor = /[[a-zA-Z]+\,.+|\S]/
+const regexAuthor = /^(\w+)\,\s([\w+\.?\s?]+);?/
 
 const schema = yup.object().shape({
     title: yup.string().required('É necessário informar o título da publicação'),    
     subTitle: yup.string(),
     originalTitle: yup.string(),
     originalLanguage: yup.string().required('É necessário definir o idioma da publicação'),
-    authors: yup.array().of(yup.string().required().matches(regexAuthor)),
-    //https://stackoverflow.com/questions/56855869/yup-validate-is-either-string-or-array-of-strings
+    authors: yup.string().matches(regexAuthor, 'É necessário seguir um dos padões: Sobrenome, Primeiro Nome'),
     translator: yup.string(),
     isbn: yup.string(),
     authorCode: yup.string(),

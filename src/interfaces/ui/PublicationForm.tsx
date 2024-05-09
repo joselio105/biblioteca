@@ -1,18 +1,18 @@
+import { FormEventHandler } from "react";
+import { FieldErrors, UseFormRegister, UseFormWatch } from "react-hook-form";
+import { Search } from "lucide-react";
+import { Form } from "@components/Form";
+import { Button } from "@components/Button";
+import { GridRow } from "@components/GridRow";
+import { Fieldset } from "@components/Fieldset";
+import { FieldInput } from "@components/FieldInput";
+import { PageHeading } from "@components/PageHeading";
+import { FieldSelect } from "@components/FieldSelect";
 import { languages } from "@/data/languages";
 import { themes } from "@/data/themes";
-import { Button } from "@/modules/components/Button";
-import { FieldInput } from "@/modules/components/FieldInput";
-import { FieldSelect } from "@/modules/components/FieldSelect";
-import { Fieldset } from "@/modules/components/Fieldset";
-import { GridRow } from "@/modules/components/GridRow";
-import { IPublication, IPublicationForm } from "@/modules/types/publication";
 import { IUser } from "@/modules/types/user";
 import { now } from "@/modules/utils/datetime";
-import { Form } from "@components/Form";
-import { PageHeading } from "@components/PageHeading";
-import { PlusCircle, Search } from "lucide-react";
-import { FormEventHandler, useState } from "react";
-import { FieldErrors, UseFormRegister, UseFormWatch } from "react-hook-form";
+import { IPublication, IPublicationForm } from "@/modules/types/publication";
 
 interface Props {
   userLogged: IUser;
@@ -37,61 +37,6 @@ export function PublicationForm({
   watch,
   errors,
 }: Props) {
-  const [authorsCount, setAuthorsCount] = useState(1);
-
-  const AuthorFields = () => {
-    if (publication && publication.authors) {
-      publication.authors.map((author, key) => (
-        <GridRow key={key}>
-          <FieldInput
-            className="col-span-7"
-            labelText="Autor"
-            inputProps={{
-              placeholder: "Informe o autor da publicação",
-              value: author,
-              id: registers("authors").name + key,
-              ...registers("authors"),
-            }}
-            errorMessage={errors?.authors?.message}
-          />
-          <Button
-            isSecondary
-            onClick={(event) => {
-              event.preventDefault();
-              setAuthorsCount(key + 1);
-            }}
-          >
-            <PlusCircle />
-          </Button>
-        </GridRow>
-      ));
-    } else {
-      return (
-        <GridRow>
-          <FieldInput
-            className="col-span-7"
-            labelText="Autor"
-            inputProps={{
-              placeholder: "Informe o autor da publicação",
-              id: registers("authors").name + authorsCount,
-              ...registers("authors"),
-            }}
-            errorMessage={errors?.authors?.message}
-          />
-          <Button
-            isSecondary
-            onClick={(event) => {
-              event.preventDefault();
-              setAuthorsCount(authorsCount + 1);
-            }}
-          >
-            <PlusCircle />
-          </Button>
-        </GridRow>
-      );
-    }
-  };
-
   return (
     <>
       <PageHeading>
@@ -185,7 +130,16 @@ export function PublicationForm({
           />
         </Fieldset>
 
-        <Fieldset legendText="Autor">
+        <Fieldset legendText="Autoria">
+          <FieldInput
+            labelText="Autor(es)"
+            inputProps={{
+              placeholder:
+                "Informe o(s) autor(es) da publicação. No caso de mais de um autor, estes devem ser separados por ponto e vírgula - ;",
+              ...registers("authors"),
+            }}
+            errorMessage={errors?.authors?.message}
+          />
           <FieldInput
             labelText="Tradutor"
             inputProps={{
@@ -203,7 +157,6 @@ export function PublicationForm({
             }}
             errorMessage={errors.authorCode?.message}
           />
-          <AuthorFields />
         </Fieldset>
         <Fieldset legendText="Publicação">
           <FieldInput

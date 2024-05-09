@@ -1,6 +1,7 @@
 import { IData } from "@/modules/types/data";
 import { now } from "@/modules/utils/datetime";
 import { IPublication, IPublicationForm, IPublicationIsbn } from "@/modules/types/publication";
+import { getCutterCode } from "@/modules/utils/cutter";
 
 export function isbnToMain({
     title,
@@ -16,13 +17,18 @@ export function isbnToMain({
         id: "",
         title,
         subTitle: subtitle ?? '',
-        authors,
+        authors: authors.sort((a,b)=>{
+          const namesA = a.split(' ')
+          const namesB = b.split(' ')
+
+          return namesA[namesA.length-1].localeCompare(namesB[namesB.length-1])
+        }).join('; '),
         isbn,
         publisher,
         pubPlace: location ?? '',
+        pubDate: year?String(year):'',
         subjects: subjects?.join(", "),
         pagesNumber: page_count,
-        pubDate: String(year),
         originalLanguage: "pt",
         themeCode: "",
         authorCode: "",
@@ -37,9 +43,9 @@ export function formToData(publication: IPublicationForm, id?:string):IData{
     const response = {
         title: publication?.title,
         subTitle: publication?.subTitle ?? "",
-        authorCode: publication?.authorCode ?? "",
+        authorCode: publication?.authorCode ?? getCutterCode(publication),
         themeCode: publication?.themeCode,
-        authors: publication.authors?.join("; ") ?? "",
+        authors: publication.authors ?? "",
         publisher: publication?.publisher ?? "",
         pubDate: publication?.pubDate ?? "",
         pubPlace: publication?.pubPlace ?? "",
