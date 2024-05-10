@@ -32,7 +32,7 @@ export interface IPublicationForm {
     subTitle?: string
     originalTitle?: string
     originalLanguage: string
-    authors?: string
+    authors?: string[]
     translator?: string
     isbn?: string
     authorCode?: string

@@ -1,5 +1,10 @@
 import { FormEventHandler } from "react";
-import { FieldErrors, UseFormRegister, UseFormWatch } from "react-hook-form";
+import {
+  Control,
+  FieldErrors,
+  UseFormRegister,
+  UseFormWatch,
+} from "react-hook-form";
 import { Search } from "lucide-react";
 import { Form } from "@components/Form";
 import { Button } from "@components/Button";
@@ -13,6 +18,7 @@ import { themes } from "@/data/themes";
 import { IUser } from "@/modules/types/user";
 import { now } from "@/modules/utils/datetime";
 import { IPublication, IPublicationForm } from "@/modules/types/publication";
+import { FieldsAuthor } from "@/modules/components/FieldsAuthor";
 
 interface Props {
   userLogged: IUser;
@@ -23,6 +29,7 @@ interface Props {
   handleSubmit: FormEventHandler<HTMLFormElement>;
   registers: UseFormRegister<IPublicationForm>;
   watch: UseFormWatch<IPublicationForm>;
+  control: Control<IPublicationForm>;
   errors: FieldErrors<IPublicationForm>;
 }
 
@@ -35,6 +42,7 @@ export function PublicationForm({
   handleSubmit,
   registers,
   watch,
+  control,
   errors,
 }: Props) {
   return (
@@ -131,7 +139,7 @@ export function PublicationForm({
         </Fieldset>
 
         <Fieldset legendText="Autoria">
-          <FieldInput
+          {/* <FieldInput
             labelText="Autor(es)"
             inputProps={{
               placeholder:
@@ -139,6 +147,11 @@ export function PublicationForm({
               ...registers("authors"),
             }}
             errorMessage={errors?.authors?.message}
+          /> */}
+          <FieldsAuthor
+            control={control}
+            registers={registers}
+            errors={errors}
           />
           <FieldInput
             labelText="Tradutor"

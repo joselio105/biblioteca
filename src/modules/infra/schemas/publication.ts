@@ -8,7 +8,11 @@ const schema = yup.object().shape({
     subTitle: yup.string(),
     originalTitle: yup.string(),
     originalLanguage: yup.string().required('É necessário definir o idioma da publicação'),
-    authors: yup.string().matches(regexAuthor, 'É necessário seguir um dos padões: Sobrenome, Primeiro Nome'),
+    authors: yup.lazy(val => (Array.isArray(val) 
+        ? yup.array(yup.string().required().matches(regexAuthor, 'É necessário estar no padão: Sobrenome, Primeiro Nome')) 
+        : yup.string()
+    )),
+    // authors: yup.array(yup.string().required().matches(regexAuthor, 'É necessário estar no padão: Sobrenome, Primeiro Nome')),
     translator: yup.string(),
     isbn: yup.string(),
     authorCode: yup.string(),
