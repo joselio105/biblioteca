@@ -18,7 +18,7 @@ export interface IPublication {
     pubOriginalDate?: string
     pubPlace?: string
     subjects?: string
-    pagesNumber?: number
+    pagesNumber?: string
     edition?: string
     volume?: string
     createdAt: number
@@ -42,7 +42,7 @@ export interface IPublicationForm {
     pubOriginalDate?: string
     pubPlace?: string
     subjects?: string
-    // pagesNumber?: number
+    pagesNumber?: string
     edition?: string
     volume?: string
     copies: number

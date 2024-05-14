@@ -8,11 +8,7 @@ const schema = yup.object().shape({
     subTitle: yup.string(),
     originalTitle: yup.string(),
     originalLanguage: yup.string().required('É necessário definir o idioma da publicação'),
-    authors: yup.lazy(val => (Array.isArray(val) 
-        ? yup.array(yup.string().required().matches(regexAuthor, 'É necessário estar no padão: Sobrenome, Primeiro Nome')) 
-        : yup.string()
-    )),
-    // authors: yup.array(yup.string().required().matches(regexAuthor, 'É necessário estar no padão: Sobrenome, Primeiro Nome')),
+    authors: yup.array(yup.string().required().matches(regexAuthor, 'É necessário estar no padão: Sobrenome, Primeiro Nome')),
     translator: yup.string(),
     isbn: yup.string(),
     authorCode: yup.string(),
@@ -22,7 +18,7 @@ const schema = yup.object().shape({
     pubOriginalDate: yup.string(),
     pubPlace: yup.string(),
     subjects: yup.string(),
-    // pagesNumber: yup.number().nullable().transform((__, val)=>(val===''?null:val)),
+    pagesNumber: yup.string(),
     edition: yup.string(),
     volume: yup.string(),
     copies: yup.number().required('É necessário informar a quantidade de cópias a serem cadastradas').moreThan(0, 'É necessário cadastrar ao menos uma cópia'),    

@@ -1,29 +1,21 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "@hooks/useAuth";
+import { PublicationForm } from "../ui/PublicationForm";
 import { publicationResolver as resolver } from "@infra/schemas/publication";
-import { useAuth } from "@/modules/hooks/useAuth";
-import { IPublication, IPublicationForm } from "@/modules/types/publication";
 import {
   findPublicationById,
   findPublicationByIsbn,
   insertPublication,
   updatePublication,
-} from "@/modules/infra/api/publications";
-import { PublicationForm } from "../ui/PublicationForm";
+} from "@infra/api/publications";
+import { IPublication, IPublicationForm } from "@/modules/types/publication";
 import {
   formToData,
   isbnToMain,
   mainToForm,
-} from "@/modules/infra/mappers/publicationMappers";
-
-// TODO: - Validação do(s) autor(es):
-//        - Sem autor
-//        - Um autor
-//        - Mais de um autor
-
-// TODO: - Gerar código Cutter
-// TODO: - Corrigir Número de páginas
+} from "@infra/mappers/publicationMappers";
 
 export function PublicationFormContainer() {
   const { id, isbn } = useParams();
@@ -49,21 +41,21 @@ export function PublicationFormContainer() {
     const data = formToData(publication);
     console.log(data);
 
-    setIsLoading(true);
-    insertPublication(data)
-      .then(() => {
-        setFeedbackMessage("Publicação cadastrada com sucesso");
-        setSuccess(true);
-        navigate("/users");
-      })
-      .catch((err) => {
-        console.log(err);
-        setSuccess(false);
-        setFeedbackMessage("Falha ao cadastar publicação");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    // setIsLoading(true);
+    // insertPublication(data)
+    //   .then(() => {
+    //     setFeedbackMessage("Publicação cadastrada com sucesso");
+    //     setSuccess(true);
+    //     navigate("/users");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     setSuccess(false);
+    //     setFeedbackMessage("Falha ao cadastar publicação");
+    //   })
+    //   .finally(() => {
+    //     setIsLoading(false);
+    //   });
   };
 
   const update = (id: string, publication: IPublicationForm) => {

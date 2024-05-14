@@ -40,23 +40,46 @@ export function isbnToMain({
 }
 
 export function formToData(publication: IPublicationForm, id?:string):IData{
-    const response = {
+    const response:IData = {
         title: publication?.title,
-        subTitle: publication?.subTitle ?? "",
-        authorCode: publication?.authorCode ?? getCutterCode(publication),
         themeCode: publication?.themeCode,
-        authors: publication.authors ? publication.authors.join('; '): "",
-        publisher: publication?.publisher ?? "",
-        pubDate: publication?.pubDate ?? "",
-        pubPlace: publication?.pubPlace ?? "",
-        // pagesNumber: publication?.pagesNumber ?? null,
-        originalLanguage: publication?.originalLanguage,
-        subjects: publication?.subjects ?? "",
-        isbn: publication?.isbn ?? "",
+        authorCode: publication.authorCode?publication.authorCode:getCutterCode(publication),
+        originalLanguage: publication.originalLanguage,
         createdAt: publication?.createdAt,
         updatedAt: publication?.updatedAt,
         createdBy: publication?.createdBy,
         updatedBy: publication?.updatedBy,
+      }
+
+      if(publication.subTitle){
+        response.subTitle = publication.subTitle
+      }
+      if(publication.originalTitle){
+        response.originalTitle = publication.originalTitle
+      }
+      if(publication.authors){
+        response.authors = publication.authors.join('; ')
+      }
+      if(publication.publisher){
+        response.publisher = publication.publisher
+      }
+      if(publication.pubDate){
+        response.pubDate = publication.pubDate
+      }
+      if(publication.pubOriginalDate){
+        response.pubOriginalDate = publication.pubOriginalDate
+      }
+      if(publication.pubPlace){
+        response.pubPlace = publication.pubPlace
+      }
+      if(publication.subjects){
+        response.subjects = publication.subjects
+      }
+      if(publication.isbn){
+        response.isbn = publication.isbn
+      }
+      if(publication.pagesNumber){
+        response.pagesNumber = publication.pagesNumber
       }
       
       return id ? {id, ...response} : response

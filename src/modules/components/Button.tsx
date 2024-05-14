@@ -13,6 +13,7 @@ export function Button({
   to,
   isSecondary = false,
   isLoading = false,
+  className = undefined,
   ...props
 }: Props) {
   const buttonStyle = clsx(
@@ -25,7 +26,7 @@ export function Button({
       "hover:text-secondary-700 dark:hover:text-secondary-300": isSecondary,
       "dark:border-secondary-500 dark:text-primary-300": isSecondary,
     },
-    props.className
+    className
   );
   if (to) {
     return (

@@ -13,12 +13,12 @@ import { Fieldset } from "@components/Fieldset";
 import { FieldInput } from "@components/FieldInput";
 import { PageHeading } from "@components/PageHeading";
 import { FieldSelect } from "@components/FieldSelect";
+import { FieldsAuthor } from "@components/FieldsAuthor";
+import { now } from "@utils/datetime";
 import { languages } from "@/data/languages";
 import { themes } from "@/data/themes";
 import { IUser } from "@/modules/types/user";
-import { now } from "@/modules/utils/datetime";
 import { IPublication, IPublicationForm } from "@/modules/types/publication";
-import { FieldsAuthor } from "@/modules/components/FieldsAuthor";
 
 interface Props {
   userLogged: IUser;
@@ -139,15 +139,6 @@ export function PublicationForm({
         </Fieldset>
 
         <Fieldset legendText="Autoria">
-          {/* <FieldInput
-            labelText="Autor(es)"
-            inputProps={{
-              placeholder:
-                "Informe o(s) autor(es) da publicação. No caso de mais de um autor, estes devem ser separados por ponto e vírgula - ;",
-              ...registers("authors"),
-            }}
-            errorMessage={errors?.authors?.message}
-          /> */}
           <FieldsAuthor
             control={control}
             registers={registers}
@@ -207,7 +198,7 @@ export function PublicationForm({
         </Fieldset>
 
         <Fieldset legendText="Informações">
-          {/* <FieldInput
+          <FieldInput
             labelText="Número de páginas"
             inputProps={{
               placeholder: "Informe o número de páginas",
@@ -217,7 +208,7 @@ export function PublicationForm({
               ...registers("pagesNumber"),
             }}
             errorMessage={errors.pagesNumber?.message}
-          /> */}
+          />
           <FieldInput
             labelText="Assuntos"
             inputProps={{
