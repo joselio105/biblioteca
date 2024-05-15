@@ -3,6 +3,7 @@ import { FieldContainer } from "./FieldContainer";
 import clsx from "clsx";
 
 interface Props {
+  className?: string;
   labelText: string;
   icon?: ReactNode;
   errorMessage?: string;
@@ -18,12 +19,14 @@ export function FieldSelect({
   selectProps,
   optionValues,
   placeholder,
+  className,
 }: Props) {
   return (
     <FieldContainer
       fieldId={selectProps.id ?? ""}
       labelText={labelText}
       errorMessage={errorMessage}
+      className={className}
     >
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-primary-400">
         {icon ? icon : ""}

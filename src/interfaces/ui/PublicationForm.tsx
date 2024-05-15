@@ -127,15 +127,29 @@ export function PublicationForm({
             }}
             errorMessage={errors.originalTitle?.message}
           />
-          <FieldSelect
-            labelText="Idioma original"
-            optionValues={languages.map(({ name: label, code: value }) => ({
-              label,
-              value,
-            }))}
-            selectProps={{ ...registers("originalLanguage") }}
-            errorMessage={errors.originalLanguage?.message}
-          />
+          <GridRow>
+            <FieldSelect
+              className="col-span-4"
+              labelText="Idioma da publicação"
+              optionValues={languages.map(({ name: label, code: value }) => ({
+                label,
+                value,
+              }))}
+              selectProps={{ ...registers("publicationLanguage") }}
+              errorMessage={errors.publicationLanguage?.message}
+            />
+            <FieldSelect
+              className="col-span-4"
+              labelText="Idioma original"
+              placeholder="Defina o idioma original"
+              optionValues={languages.map(({ name: label, code: value }) => ({
+                label,
+                value,
+              }))}
+              selectProps={{ ...registers("originalLanguage") }}
+              errorMessage={errors.originalLanguage?.message}
+            />
+          </GridRow>
         </Fieldset>
 
         <Fieldset legendText="Autoria">
@@ -234,10 +248,11 @@ export function PublicationForm({
             errorMessage={errors.volume?.message}
           />
           <FieldInput
+            canRender={!publication!}
             labelText="Número de cópias"
             inputProps={{
               placeholder: "Informe o número de exemplares",
-              type: "number",
+              type: !publication ? "number" : "hidden",
               step: 1,
               min: 1,
               defaultValue: 1,

@@ -307,18 +307,17 @@
     },
     {
       "id": "c451",
-      "title": "O discípulo radical",
+      "title": "Las Controversias de Jesus",
       "themeCode": "240",
-      "authorCode": "S863d",
-      "originalLanguage": "pt",
+      "authorCode": "S863c",
+      "publicationLanguage": "es",
       "createdAt": 1715733571283,
       "updatedAt": 1715733571283,
       "createdBy": "7d61",
       "updatedBy": "7d61",
       "authors": "Stott, John",
       "publisher": "ULTIMATO",
-      "subjects": "Denominações cristãs e seitas",
-      "isbn": "9788577790449"
+      "subjects": "Denominações cristãs e seitas"
     },
     {
       "id": "b230",
@@ -334,6 +333,36 @@
       "publisher": "ULTIMATO",
       "subjects": "Denominações cristãs e seitas",
       "isbn": "9788577790449"
+    },
+    {
+      "id": "ba60",
+      "title": "As controvérsias de Jesus",
+      "themeCode": "240",
+      "authorCode": "S863c",
+      "originalLanguage": "pt",
+      "createdAt": 1715794423555,
+      "updatedAt": 1715794423555,
+      "createdBy": "7d61",
+      "updatedBy": "7d61",
+      "authors": "Stott, John",
+      "publisher": "ULTIMATO",
+      "subjects": "Moral cristã e teologia devocional",
+      "isbn": "9788577791224"
+    },
+    {
+      "id": "e8a4",
+      "title": "Por que sou Cristão",
+      "themeCode": "260",
+      "authorCode": "S863p",
+      "publicationLanguage": "pt",
+      "createdAt": 1715798901080,
+      "updatedAt": 1715798901080,
+      "createdBy": "7d61",
+      "updatedBy": "7d61",
+      "authors": "Stott, John",
+      "publisher": "ULTIMATO",
+      "subjects": "Denominações cristãs e seitas",
+      "isbn": "8586539759"
     }
   ],
   "copys": [
@@ -546,6 +575,132 @@
         "isbn": "9788577790449"
       },
       "registrationCode": "bib.2024.10"
+    },
+    {
+      "id": "475e",
+      "publicationId": "ba60",
+      "year": 2024,
+      "publication": {
+        "id": "ba60",
+        "title": "As controvérsias de Jesus",
+        "themeCode": "240",
+        "authorCode": "S863c",
+        "originalLanguage": "pt",
+        "createdAt": 1715794423555,
+        "updatedAt": 1715794423555,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Moral cristã e teologia devocional",
+        "isbn": "9788577791224"
+      },
+      "registrationCode": "bib.2024.11"
+    },
+    {
+      "id": "20e7",
+      "publicationId": "ba60",
+      "year": 2024,
+      "publication": {
+        "id": "ba60",
+        "title": "As controvérsias de Jesus",
+        "themeCode": "240",
+        "authorCode": "S863c",
+        "originalLanguage": "pt",
+        "createdAt": 1715794423555,
+        "updatedAt": 1715794423555,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Moral cristã e teologia devocional",
+        "isbn": "9788577791224"
+      },
+      "registrationCode": "bib.2024.12"
+    },
+    {
+      "id": "32ee",
+      "publicationId": "ba60",
+      "year": 2024,
+      "publication": {
+        "id": "ba60",
+        "title": "As controvérsias de Jesus",
+        "themeCode": "240",
+        "authorCode": "S863c",
+        "originalLanguage": "pt",
+        "createdAt": 1715794423555,
+        "updatedAt": 1715794423555,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Moral cristã e teologia devocional",
+        "isbn": "9788577791224"
+      },
+      "registrationCode": "bib.2024.13"
+    },
+    {
+      "id": "6967",
+      "publicationId": "e8a4",
+      "year": 2024,
+      "publication": {
+        "id": "e8a4",
+        "title": "POR QUE SOU CRISTÂO",
+        "themeCode": "260",
+        "authorCode": "S863p",
+        "publicationLanguage": "pt",
+        "createdAt": 1715798901080,
+        "updatedAt": 1715798901080,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "8586539759"
+      },
+      "registrationCode": "bib.2024.14"
+    },
+    {
+      "id": "bdb3",
+      "publicationId": "e8a4",
+      "year": 2024,
+      "publication": {
+        "id": "e8a4",
+        "title": "POR QUE SOU CRISTÂO",
+        "themeCode": "260",
+        "authorCode": "S863p",
+        "publicationLanguage": "pt",
+        "createdAt": 1715798901080,
+        "updatedAt": 1715798901080,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "8586539759"
+      },
+      "registrationCode": "bib.2024.15"
+    },
+    {
+      "id": "8efc",
+      "publicationId": "e8a4",
+      "year": 2024,
+      "publication": {
+        "id": "e8a4",
+        "title": "POR QUE SOU CRISTÂO",
+        "themeCode": "260",
+        "authorCode": "S863p",
+        "publicationLanguage": "pt",
+        "createdAt": 1715798901080,
+        "updatedAt": 1715798901080,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "8586539759"
+      },
+      "registrationCode": "bib.2024.16"
     }
   ],
   "bookings": []

@@ -60,7 +60,7 @@ export function PublicationFormContainer() {
 
           insertCopy(copy)
             .then(() => {
-              navigate("/users");
+              navigate("/publications");
             })
             .catch((err) => console.log(err))
             .finally(() => setIsLoading(false));
@@ -85,7 +85,7 @@ export function PublicationFormContainer() {
       .then(() => {
         setSuccess(true);
         setFeedbackMessage("Publicação alterado com sucesso");
-        navigate("/user/" + id);
+        navigate("/publication/" + id);
       })
       .catch((err) => {
         console.log(err);

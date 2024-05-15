@@ -2,9 +2,10 @@ import { ILanguage, languages } from "@/data/languages";
 import { IPublicationForm } from "../types/publication";
 import { cutterTable } from "@/data/cutter";
 
-export function getCutterCode({title, originalTitle, originalLanguage, authors}:IPublicationForm): string{
-    const titleArray = getTitleArray(title, originalLanguage, originalTitle)
-    const titleCleanned = getTitleCleanned(titleArray, originalLanguage)
+export function getCutterCode({title, originalTitle, publicationLanguage, authors}:IPublicationForm): string{
+    const language = publicationLanguage
+    const titleArray = getTitleArray(title, originalTitle)
+    const titleCleanned = getTitleCleanned(titleArray, language)
     const author = getAuthor(titleCleanned, authors)
     const authorCode = getAuthorCode(author)
 
@@ -15,15 +16,18 @@ function getLanguageInfo(originalLanguage:string): ILanguage {
     return languages.find(language=>language.code===originalLanguage) ?? {} as ILanguage
 }
 
-function getTitleArray(title:string, originalLanguage: string, originalTitle?: string)
+function getTitleArray(title:string, originalTitle?: string)
 :string[]{
 
-    const titleString = originalLanguage==='pt' ? title : originalTitle??'Ç'
+    const titleString = originalTitle ? originalTitle : title
     return titleString.toLowerCase().split(' ')
 }
 
 function getTitleCleanned(title: string[], originalLanguage: string): string{
-    return getLanguageInfo(originalLanguage).ignore.find(word=>word===title[0])?title[1]:title[0]
+    const languageInfo = getLanguageInfo(originalLanguage)
+    console.log(languageInfo, title);
+    
+    return languageInfo.ignore.find(word=>word===title[0])?title[1]:title[0]
 }
 
 function getAuthor(titleCleanned:string, authors?: string[]):string{

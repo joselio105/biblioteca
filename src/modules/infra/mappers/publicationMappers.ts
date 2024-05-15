@@ -1,7 +1,7 @@
+import { now } from "@utils/datetime";
+import { getCutterCode } from "@utils/cutter";
 import { IData } from "@/modules/types/data";
-import { now } from "@/modules/utils/datetime";
 import { IPublication, IPublicationForm, IPublicationIsbn } from "@/modules/types/publication";
-import { getCutterCode } from "@/modules/utils/cutter";
 
 export function isbnToMain({
     title,
@@ -13,7 +13,7 @@ export function isbnToMain({
     subjects,
     year,
     page_count}: IPublicationIsbn, userId: string){
-    return {
+    const response = {
         id: "",
         title,
         subTitle: subtitle ?? '',
@@ -28,15 +28,18 @@ export function isbnToMain({
         pubPlace: location ?? '',
         pubDate: year?String(year):'',
         subjects: subjects?.join(", "),
-        pagesNumber: page_count,
-        originalLanguage: "pt",
-        themeCode: "",
-        authorCode: "",
+        publicationLanguage: "pt",
         createdAt: now(),
         createdBy: userId,
         updatedAt: now(),
         updatedBy: userId,
       } as IPublication
+
+      if(page_count && page_count !== null){
+        response.pagesNumber = String(page_count)
+      }
+
+      return response
 }
 
 export function formToData(publication: IPublicationForm, id?:string):IData{
@@ -44,7 +47,7 @@ export function formToData(publication: IPublicationForm, id?:string):IData{
         title: publication?.title,
         themeCode: publication?.themeCode,
         authorCode: publication.authorCode?publication.authorCode:getCutterCode(publication),
-        originalLanguage: publication.originalLanguage,
+        publicationLanguage: publication.publicationLanguage,
         createdAt: publication?.createdAt,
         updatedAt: publication?.updatedAt,
         createdBy: publication?.createdBy,
@@ -56,6 +59,9 @@ export function formToData(publication: IPublicationForm, id?:string):IData{
       }
       if(publication.originalTitle){
         response.originalTitle = publication.originalTitle
+      }
+      if(publication.originalLanguage){
+        response.originalLanguage = publication.originalLanguage
       }
       if(publication.authors && publication.authors?.length>0){
         response.authors = publication.authors.join('; ')
@@ -95,7 +101,8 @@ return publication ? {
     publisher: publication?.publisher,
     pubDate: publication?.pubDate,
     pubPlace: publication?.pubPlace,
-    // pagesNumber: publication?.pagesNumber,
+    pagesNumber: publication?.pagesNumber,
+    publicationLanguage: publication?.publicationLanguage,
     originalLanguage: publication?.originalLanguage,
     subjects: publication?.subjects,
     isbn: publication?.isbn,

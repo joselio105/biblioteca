@@ -19,7 +19,7 @@ export function Button({
   const buttonStyle = clsx(
     "min-w-16 p-3 rounded-lg duration-300 border flex items-center justify-center gap-3",
     {
-      "bg-secondary-900 text-primary-200]": !isSecondary,
+      "bg-secondary-900 text-primary-200": !isSecondary,
       "border-secondary-700 hover:bg-secondary-700": !isSecondary,
       "dark:text-secondary-200": !isSecondary,
       "border-secondary-700 text-primary-700": isSecondary,

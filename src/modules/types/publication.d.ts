@@ -8,6 +8,7 @@ export interface IPublication {
     subTitle?: string
     originalTitle?: string
     originalLanguage: string
+    publicationLanguage: string
     authors?: string
     translator?: string
     isbn?: string
@@ -31,7 +32,8 @@ export interface IPublicationForm {
     title: string
     subTitle?: string
     originalTitle?: string
-    originalLanguage: string
+    originalLanguage?: string
+    publicationLanguage: string
     authors?: string[]
     translator?: string
     isbn?: string

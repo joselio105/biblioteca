@@ -7,6 +7,8 @@ import { Table } from "@/modules/components/Table";
 import { ICopy } from "@/modules/types/copy";
 import { Loading } from "@/modules/components/Loading";
 import { Empty } from "@/modules/components/Empty";
+import { PageNav } from "@/modules/components/PageNav";
+import { Button } from "@/modules/components/Button";
 
 interface Props {
   publication?: IPublication;
@@ -18,6 +20,11 @@ export function Publication({ publication, copys, isLoading }: Props) {
   return publication ? (
     <>
       <PageHeading>{publication.title}</PageHeading>
+      <PageNav>
+        <Button isSecondary to={`/publicationForm/${publication.id}`}>
+          Editar
+        </Button>
+      </PageNav>
       <PageColumns>
         <TextLabeled label="Autor(es)">{publication.authors}</TextLabeled>
         <TextLabeled label="Código  Cutter">
