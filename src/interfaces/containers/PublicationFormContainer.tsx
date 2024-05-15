@@ -78,7 +78,7 @@ export function PublicationFormContainer() {
 
   const update = (id: string, publication: IPublicationForm) => {
     const data = formToData(publication, id);
-    console.log(data);
+    console.log("UPDATE", data);
 
     setIsLoading(true);
     updatePublication(data)

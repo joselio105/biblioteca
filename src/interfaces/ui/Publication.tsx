@@ -6,6 +6,7 @@ import { IPublication } from "@/modules/types/publication";
 import { Table } from "@/modules/components/Table";
 import { ICopy } from "@/modules/types/copy";
 import { Loading } from "@/modules/components/Loading";
+import { Empty } from "@/modules/components/Empty";
 
 interface Props {
   publication?: IPublication;
@@ -14,11 +15,11 @@ interface Props {
 }
 
 export function Publication({ publication, copys, isLoading }: Props) {
-  return (
+  return publication ? (
     <>
       <PageHeading>{publication.title}</PageHeading>
       <PageColumns>
-        <TextLabeled label="Autor">{publication.authors[0]}</TextLabeled>
+        <TextLabeled label="Autor(es)">{publication.authors}</TextLabeled>
         <TextLabeled label="Código  Cutter">
           {publication.authorCode}
         </TextLabeled>
@@ -34,5 +35,7 @@ export function Publication({ publication, copys, isLoading }: Props) {
       )}
       <PageFooter backTo="/publications" />
     </>
+  ) : (
+    <Empty text="Nenhuma publicação correspondente" />
   );
 }

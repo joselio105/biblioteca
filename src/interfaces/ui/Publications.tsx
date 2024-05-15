@@ -54,7 +54,7 @@ export function Publications({
                 ),
               },
               { label: publication.title, colSpan: 2 },
-              { label: publication?.authors?.join(", ") ?? "" },
+              { label: publication?.authors ?? "" },
               { label: publication.authorCode },
               { label: publication.themeCode },
             ])}
