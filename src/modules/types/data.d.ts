@@ -1,5 +1,7 @@
+import { IPublication } from "./publication";
+
 export interface IData {
-    [key: string]: File | string | null | boolean | number;
+    [key: string]: File | string | null | boolean | number | IPublication;
   }
   
   export interface IQueryString {

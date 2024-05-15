@@ -9,7 +9,7 @@ export async function findManyPublications(query:IQueryString) {
     return publications.filter(publication => {
         const compareTitle = publication.title.split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
         const compareAuthor = publication.authors ? 
-        publication.authors.join('; ').replace(',', '').split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
+        publication.authors.replace(',', '').split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
         :false
 
         return compareTitle||compareAuthor
@@ -20,7 +20,7 @@ export async function findPublicationById(id: string) {
     return api.get<IPublication>(`${endpoint}/${id}`)
 }
 
-export async function insertPublication(publication: IData){
+export async function insertPublication(publication: IData):Promise<IPublication>{
     return api.post(endpoint, publication)
 }
 

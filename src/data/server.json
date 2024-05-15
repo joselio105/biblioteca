@@ -304,32 +304,248 @@
       "updatedAt": 1715711849942,
       "createdBy": "7d61",
       "updatedBy": "7d61"
+    },
+    {
+      "id": "c451",
+      "title": "O discípulo radical",
+      "themeCode": "240",
+      "authorCode": "S863d",
+      "originalLanguage": "pt",
+      "createdAt": 1715733571283,
+      "updatedAt": 1715733571283,
+      "createdBy": "7d61",
+      "updatedBy": "7d61",
+      "authors": "Stott, John",
+      "publisher": "ULTIMATO",
+      "subjects": "Denominações cristãs e seitas",
+      "isbn": "9788577790449"
+    },
+    {
+      "id": "b230",
+      "title": "O discípulo radical",
+      "themeCode": "240",
+      "authorCode": "S863d",
+      "originalLanguage": "pt",
+      "createdAt": 1715735063813,
+      "updatedAt": 1715735063813,
+      "createdBy": "7d61",
+      "updatedBy": "7d61",
+      "authors": "Stott, John",
+      "publisher": "ULTIMATO",
+      "subjects": "Denominações cristãs e seitas",
+      "isbn": "9788577790449"
     }
   ],
   "copys": [
     {
-      "id": "1",
-      "publicationId": "1",
+      "id": "7bae",
+      "publicationId": "b230",
+      "year": 2024,
       "publication": {
-        "id": "1",
-        "title": "Reinações de Narizinho",
-        "author": "Lobato, Monteiro",
-        "authorCode": "L123r",
-        "themeCode": "28.5"
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
       },
       "registrationCode": "bib.2024.1"
     },
     {
-      "id": "2",
-      "publicationId": "2",
+      "id": "3ca1",
+      "publicationId": "b230",
+      "year": 2024,
       "publication": {
-        "id": "2",
-        "title": "As aventuras de Pedrinho",
-        "author": "Lobato, Monteiro",
-        "authorCode": "L123a",
-        "themeCode": "28.5"
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
       },
       "registrationCode": "bib.2024.2"
+    },
+    {
+      "id": "ac8c",
+      "publicationId": "b230",
+      "year": 2024,
+      "publication": {
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
+      },
+      "registrationCode": "bib.2024.3"
+    },
+    {
+      "id": "6e41",
+      "publicationId": "b230",
+      "year": 2024,
+      "publication": {
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
+      },
+      "registrationCode": "bib.2024.5"
+    },
+    {
+      "id": "968e",
+      "publicationId": "b230",
+      "year": 2024,
+      "publication": {
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
+      },
+      "registrationCode": "bib.2024.4"
+    },
+    {
+      "id": "6d7c",
+      "publicationId": "b230",
+      "year": 2024,
+      "publication": {
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
+      },
+      "registrationCode": "bib.2024.6"
+    },
+    {
+      "id": "7ef5",
+      "publicationId": "b230",
+      "year": 2024,
+      "publication": {
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
+      },
+      "registrationCode": "bib.2024.7"
+    },
+    {
+      "id": "d5e1",
+      "publicationId": "b230",
+      "year": 2024,
+      "publication": {
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
+      },
+      "registrationCode": "bib.2024.8"
+    },
+    {
+      "id": "8a8b",
+      "publicationId": "b230",
+      "year": 2024,
+      "publication": {
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
+      },
+      "registrationCode": "bib.2024.9"
+    },
+    {
+      "id": "0ec2",
+      "publicationId": "b230",
+      "year": 2024,
+      "publication": {
+        "id": "b230",
+        "title": "O discípulo radical",
+        "themeCode": "240",
+        "authorCode": "S863d",
+        "originalLanguage": "pt",
+        "createdAt": 1715735063813,
+        "updatedAt": 1715735063813,
+        "createdBy": "7d61",
+        "updatedBy": "7d61",
+        "authors": "Stott, John",
+        "publisher": "ULTIMATO",
+        "subjects": "Denominações cristãs e seitas",
+        "isbn": "9788577790449"
+      },
+      "registrationCode": "bib.2024.10"
     }
   ],
   "bookings": []

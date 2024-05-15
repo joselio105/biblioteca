@@ -1,5 +1,6 @@
 import { api } from "@utils/fetchApi";
 import { ICopy } from "@/modules/types/copy";
+import { IData } from "@/modules/types/data";
 
 const endpoint = 'copys'
 
@@ -12,4 +13,13 @@ export async function findCopyById(id: string) {
     const copy = await api.get<ICopy>(`${endpoint}/${id}`)
 
     return copy
+}
+
+export function countCopiesByYear(year: number) {
+    return api.get<ICopy[]>(endpoint).then(response=>(response.filter(copy=>(copy.year===year)).length))
+
+}
+
+export async function insertCopy(copy: IData){
+    return api.post(endpoint, copy)
 }

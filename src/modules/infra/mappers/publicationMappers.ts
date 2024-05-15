@@ -57,7 +57,7 @@ export function formToData(publication: IPublicationForm, id?:string):IData{
       if(publication.originalTitle){
         response.originalTitle = publication.originalTitle
       }
-      if(publication.authors){
+      if(publication.authors && publication.authors?.length>0){
         response.authors = publication.authors.join('; ')
       }
       if(publication.publisher){

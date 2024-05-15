@@ -16,6 +16,8 @@ import {
   isbnToMain,
   mainToForm,
 } from "@infra/mappers/publicationMappers";
+import { countCopiesByYear, insertCopy } from "@/modules/infra/api/copy";
+import { ICopy, ICopyForm } from "@/modules/types/copy";
 
 export function PublicationFormContainer() {
   const { id, isbn } = useParams();
@@ -39,23 +41,39 @@ export function PublicationFormContainer() {
 
   const insert = (publication: IPublicationForm) => {
     const data = formToData(publication);
-    console.log(data);
 
-    // setIsLoading(true);
-    // insertPublication(data)
-    //   .then(() => {
-    //     setFeedbackMessage("Publicação cadastrada com sucesso");
-    //     setSuccess(true);
-    //     navigate("/users");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     setSuccess(false);
-    //     setFeedbackMessage("Falha ao cadastar publicação");
-    //   })
-    //   .finally(() => {
-    //     setIsLoading(false);
-    //   });
+    setIsLoading(true);
+    insertPublication(data)
+      .then(async (response) => {
+        setFeedbackMessage("Publicação cadastrada com sucesso");
+        setSuccess(true);
+        const year = new Date(publication.createdAt).getFullYear();
+        const counter = await countCopiesByYear(year);
+
+        for (let count = 0; count < publication.copies; count++) {
+          const copy = {
+            publicationId: response.id,
+            year,
+            publication: response,
+            registrationCode: `bib.${year}.${count + counter + 1}`,
+          };
+
+          insertCopy(copy)
+            .then(() => {
+              navigate("/users");
+            })
+            .catch((err) => console.log(err))
+            .finally(() => setIsLoading(false));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setSuccess(false);
+        setFeedbackMessage("Falha ao cadastar publicação");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const update = (id: string, publication: IPublicationForm) => {
