@@ -1,14 +1,23 @@
-export const languages = [
+export interface ILanguage {
+    name: string
+    code: 'pt'|'en'|'es'
+    ignore: string[]
+}
+
+export const languages:ILanguage[] = [
     {
         name: 'Português',
-        code: 'pt'
+        code: 'pt',
+        ignore: ['o', 'a', 'os', 'as', 'um', 'uma', 'uns', 'umas']
     },
     {
         name: 'Inglês',
-        code: 'en'
+        code: 'en',
+        ignore: ['a', 'an', 'the']
     },
     {
         name: 'Espanhol',
-        code: 'es'
+        code: 'es',
+        ignore: ['el', 'la', 'lo', 'las', 'los', 'un', 'una']
     },
 ]
