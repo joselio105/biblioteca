@@ -15,6 +15,13 @@ export async function findCopyById(id: string) {
     return copy
 }
 
+export async function findCopyByRegistrationCode(registrationCode: string) {
+    const copies = await api.get<ICopy[]>(endpoint)
+    const copy = copies.find(copy=>copy.registrationCode===registrationCode)
+
+    return copy
+}
+
 export function countCopiesByYear(year: number) {
     return api.get<ICopy[]>(endpoint).then(response=>(response.filter(copy=>(copy.year===year)).length))
 

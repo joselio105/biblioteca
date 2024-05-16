@@ -56,7 +56,7 @@ export function Router() {
         },
         {
           element: <LoansContainer />,
-          path: "/loans",
+          path: "/loans/:userId?",
           loader: (props) => protectedLoader(isSigned, props),
         },
         {

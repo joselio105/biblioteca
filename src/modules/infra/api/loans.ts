@@ -19,11 +19,12 @@ export async function findManyLoans(query: IQueryString) {
     const loans = await api.get<ILoan[]>(endpoint)
     // console.log(loans, query)
     return loans.filter(loan=>{
-        const compareUser = loan.user.name.split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
+        const compareUser = loan.user?.name.split(' ').map(splited=>(splited===query?.query)).find(compare=>compare)??false
         const compareTitle = loan.copy?.publication?.title.split(' ').map(splited=>(splited===query.query)).find(compare=>compare)??false
         const compareRegistration = loan.copy?.registrationCode.split(' ').map(splited=>(splited===query.query)).find(compare=>compare)??false
+        const compareReturn = !loan.returnedAt && (query.returnedAt === -1)
 
-        return compareRegistration||compareTitle||compareUser
+        return compareRegistration||compareTitle||compareUser||compareReturn
     })
 
 }
