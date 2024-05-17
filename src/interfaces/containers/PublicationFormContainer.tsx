@@ -129,9 +129,6 @@ export function PublicationFormContainer() {
       feedbackMessage={feedbackMessage}
       handleSubmit={handleSubmit(handlerSubmit, (err) => {
         console.log(err);
-        // if (err.authors) {
-        //   setError("authors", err.authors[0]?.message);
-        // }
       })}
       registers={register}
       watch={watch}

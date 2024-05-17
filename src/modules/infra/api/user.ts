@@ -16,6 +16,12 @@ export async function findManyUsers(query?: IQueryString){
     })
 }
 
+export async function findUserByEmail(email: string) {
+    const users = await api.get<IUser[]>(endpoint)
+
+    return users.find(user=>user.email===email)
+}
+
 export async function findUserById(id: string) {
     return api.get<IUser>(`${endpoint}/${id}`)
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Loans } from "../ui/Loans";
-import { findManyLoans } from "@infra/api/loans";
-import { ILoan } from "@/modules/types/loan";
+import { findManyLoans, insertLoan } from "@infra/api/loans";
+import { ILoan, ILoanForm } from "@/modules/types/loan";
 import { findManyUsers, findUserById } from "@/modules/infra/api/user";
 import { useNavigate, useParams } from "react-router-dom";
 import { IUser } from "@/modules/types/user";
@@ -12,6 +12,14 @@ import {
 } from "@/modules/infra/api/copy";
 import { ICopy } from "@/modules/types/copy";
 import { copyStorage } from "@/modules/utils/copyStorage";
+import { useForm } from "react-hook-form";
+import { ICredentials } from "@/modules/types/auth";
+import { User } from "../ui/User";
+import { authResolver as resolver } from "@infra/schemas/auth";
+import { checkCredentials } from "@/modules/infra/api/auth";
+import { getTimestampPusDays, now } from "@/modules/utils/datetime";
+
+// TODO: Listar empréstimos não devolvidos do usuário ou todos
 
 export function LoansContainer() {
   const { userId } = useParams();
@@ -20,13 +28,25 @@ export function LoansContainer() {
   } = useAuth();
   const copyStored: ICopy[] = copyStorage.read() ?? ([] as ICopy[]);
   const navigate = useNavigate();
+  const [isLoadingAuth, setIsLoadingAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmited, setIsSubmited] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(true);
+  const [feedbackAuth, setFeedbackAuth] = useState("");
   const [feedback, setFeedback] = useState("");
   const [user, setUser] = useState<IUser>({} as IUser);
   const [users, setUsers] = useState<IUser[]>([] as IUser[]);
   const [copies, setCopies] = useState<ICopy[]>(copyStored);
   const [loans, setLoans] = useState<ILoan[]>([] as ILoan[]);
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<ICredentials>({
+    resolver,
+    values: { email: user.email ?? "", password: "" },
+  });
 
   const executeQuery = (query: string) => {
     setIsLoading(true);
@@ -48,6 +68,7 @@ export function LoansContainer() {
         if (response) {
           copyStorage.append(response);
           setCopies([response, ...copies]);
+          setFeedback("");
         } else {
           setFeedback(
             "O tombo patrimanial não corresponse a nenhuma publicação"
@@ -75,6 +96,29 @@ export function LoansContainer() {
     copyStorage.save(copies);
   };
 
+  const handlerSubmit = (value: ICredentials) => {
+    checkCredentials(value).then((response) => {
+      if (response) {
+        copies.forEach(async (copy) => {
+          const loan: ILoanForm = {
+            userId: user.id,
+            copyId: copy.id,
+            copy,
+            loan: now(),
+            returnAt: getTimestampPusDays(28),
+          };
+
+          await insertLoan(loan);
+        });
+        copyStorage.clean();
+        navigate("/user/" + user.id);
+      } else {
+        setIsSuccess(false);
+        setFeedbackAuth("Credenciais inválidas");
+      }
+    });
+  };
+
   useEffect(() => {
     if (userId) {
       fetchUser(userId);
@@ -96,6 +140,12 @@ export function LoansContainer() {
       users={users}
       isLoading={isLoading}
       isSubmited={isSubmited}
+      isLoadingAuth={isLoadingAuth}
+      feedbackAuth={feedbackAuth}
+      success={isSuccess}
+      handleSubmit={handleSubmit(handlerSubmit)}
+      registers={register}
+      errors={errors}
     />
   );
 }

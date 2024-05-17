@@ -636,6 +636,93 @@
       "registrationCode": "bib.2024.16"
     }
   ],
-  "loans": [],
+  "loans": [
+    {
+      "id": "fec7",
+      "copyId": "20e7",
+      "userId": "1",
+      "loan": 1715973670855,
+      "returnAt": 1718392870855,
+      "copy": {
+        "id": "20e7",
+        "publicationId": "ba60",
+        "year": 2024,
+        "publication": {
+          "id": "ba60",
+          "title": "As controvérsias de Jesus",
+          "themeCode": "240",
+          "authorCode": "S863c",
+          "originalLanguage": "pt",
+          "createdAt": 1715794423555,
+          "updatedAt": 1715794423555,
+          "createdBy": "7d61",
+          "updatedBy": "7d61",
+          "authors": "Stott, John",
+          "publisher": "ULTIMATO",
+          "subjects": "Moral cristã e teologia devocional",
+          "isbn": "9788577791224"
+        },
+        "registrationCode": "bib.2024.12"
+      }
+    },
+    {
+      "id": "6666",
+      "copyId": "bdb3",
+      "userId": "1",
+      "loan": 1715973670862,
+      "returnAt": 1718392870862,
+      "copy": {
+        "id": "bdb3",
+        "publicationId": "e8a4",
+        "year": 2024,
+        "publication": {
+          "id": "e8a4",
+          "title": "POR QUE SOU CRISTÂO",
+          "themeCode": "260",
+          "authorCode": "S863p",
+          "publicationLanguage": "pt",
+          "createdAt": 1715798901080,
+          "updatedAt": 1715798901080,
+          "createdBy": "7d61",
+          "updatedBy": "7d61",
+          "authors": "Stott, John",
+          "publisher": "ULTIMATO",
+          "subjects": "Denominações cristãs e seitas",
+          "isbn": "8586539759"
+        },
+        "registrationCode": "bib.2024.15"
+      },
+      "returnedAt": 1715975324861
+    },
+    {
+      "id": "c42f",
+      "copyId": "0ec2",
+      "userId": "1",
+      "loan": 1715973670864,
+      "returnAt": 1718392870864,
+      "copy": {
+        "id": "0ec2",
+        "publicationId": "b230",
+        "year": 2024,
+        "publication": {
+          "id": "b230",
+          "title": "O discípulo radical",
+          "themeCode": "240",
+          "authorCode": "S863d",
+          "originalLanguage": "pt",
+          "createdAt": 1715735063813,
+          "updatedAt": 1715735063813,
+          "createdBy": "7d61",
+          "updatedBy": "7d61",
+          "authors": "Stott, John",
+          "publisher": "ULTIMATO",
+          "subjects": "Denominações cristãs e seitas",
+          "isbn": "9788577790449"
+        },
+        "registrationCode": "bib.2024.10"
+      },
+      "returnedAt": 1715975346062
+    }
+  ],
   "bookings": []
 }

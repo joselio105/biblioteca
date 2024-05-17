@@ -1,6 +1,6 @@
 import { api } from "@utils/fetchApi";
-import { ILoan } from "@/modules/types/loan";
-import { IQueryString } from "@/modules/types/data";
+import { ILoan, ILoanForm } from "@/modules/types/loan";
+import { IData, IQueryString } from "@/modules/types/data";
 
 const endpoint = 'loans'
 
@@ -36,4 +36,22 @@ export async function findManyLoansByUserId(userId:string){
 
 export async function findLoanById(id: string) {
     return api.get<ILoan>(`${endpoint}/${id}`)
+}
+
+export async function insertLoan({userId, copyId, copy, loan, returnAt}: ILoanForm) {
+    const data: IData = {
+        copyId,
+        userId, 
+        loan,
+        returnAt
+    }
+    if(copy){
+        data['copy'] = copy
+    }
+
+    return api.post(endpoint, data)
+}
+
+export async function updateLoan(id: string, loan: ILoanForm) {
+    return api.put<ILoanForm>(`${endpoint}/${id}`, loan)
 }

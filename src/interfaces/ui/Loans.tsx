@@ -10,6 +10,10 @@ import { IUser } from "@/modules/types/user";
 import { TextLabeled } from "@/modules/components/TextLabeled";
 import { ICopy } from "@/modules/types/copy";
 import { X } from "lucide-react";
+import { FormLogin } from "@/modules/components/FormLogin";
+import { FormEventHandler } from "react";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { ICredentials } from "@/modules/types/auth";
 
 interface Props {
   executeQuery: (value: string) => void;
@@ -22,6 +26,12 @@ interface Props {
   user?: IUser;
   users?: IUser[];
   feedback: string;
+  isLoadingAuth: boolean;
+  success: boolean;
+  feedbackAuth: string;
+  handleSubmit: FormEventHandler<HTMLFormElement>;
+  registers: UseFormRegister<ICredentials>;
+  errors: FieldErrors<ICredentials>;
 }
 
 export function Loans({
@@ -35,9 +45,13 @@ export function Loans({
   user,
   users,
   feedback,
+  feedbackAuth,
+  success,
+  isLoadingAuth,
+  handleSubmit,
+  registers,
+  errors,
 }: Props) {
-  console.log(user);
-
   return (
     <>
       <PageHeading>Empréstimos</PageHeading>
@@ -51,24 +65,37 @@ export function Loans({
             feedback={feedback}
           />
           {copies.length > 0 ? (
-            <Table
-              labels={[
-                { label: "" },
-                { label: "Título", colSpan: 2 },
-                { label: "Etiqueta" },
-              ]}
-              values={copies.map((copy) => [
-                {
-                  label: (
-                    <Button onClick={() => cancelCopy(copy.id)}>
-                      <X /> Cancelar
-                    </Button>
-                  ),
-                },
-                { colSpan: 2, label: copy.publication?.title },
-                { label: copy.registrationCode },
-              ])}
-            />
+            <>
+              <Table
+                labels={[
+                  { label: "" },
+                  { label: "Título", colSpan: 2 },
+                  { label: "Etiqueta" },
+                ]}
+                values={copies.map((copy) => [
+                  {
+                    label: (
+                      <Button onClick={() => cancelCopy(copy.id)}>
+                        <X /> Cancelar
+                      </Button>
+                    ),
+                  },
+                  { colSpan: 2, label: copy.publication?.title },
+                  { label: copy.registrationCode },
+                ])}
+              />
+              <div className="w-2/3 mx-auto mt-5 bg-primary-800 rounded-lg p-3">
+                <PageHeading type="h3">Confirmar empréstimo(s)</PageHeading>
+                <FormLogin
+                  feedbackMessage={feedbackAuth}
+                  success={success}
+                  handleSubmit={handleSubmit}
+                  isLoading={isLoadingAuth}
+                  registers={registers}
+                  errors={errors}
+                />
+              </div>
+            </>
           ) : (
             ""
           )}
@@ -90,7 +117,7 @@ export function Loans({
               ]}
               values={users.map((user) => [
                 {
-                  label: <Button to={`/user/${user.id}`}>Detalhes</Button>,
+                  label: <Button to={`/loans/${user.id}`}>Slecionar</Button>,
                 },
                 { label: user.name, colSpan: 2 },
                 { label: user.email },

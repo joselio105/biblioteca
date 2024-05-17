@@ -8,6 +8,14 @@ export interface ILoan {
     copyId: string
     copy?: ICopy
     loan: number
-    return: number
+    returnAt: number
     returnedAt?: number
+}
+
+export interface ILoanForm {    
+    userId: string
+    copyId: string
+    copy?: ICopy
+    loan: number
+    returnAt: number
 }

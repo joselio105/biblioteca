@@ -4,7 +4,8 @@ import { User } from "../ui/User";
 import { findUserById } from "@infra/api/user";
 import { IUser } from "@/modules/types/user";
 import { ILoan } from "@/modules/types/loan";
-import { findManyLoansByUserId } from "@/modules/infra/api/loans";
+import { findManyLoansByUserId, updateLoan } from "@/modules/infra/api/loans";
+import { now } from "@/modules/utils/datetime";
 
 export function UserContainer() {
   const { id } = useParams();
@@ -25,9 +26,28 @@ export function UserContainer() {
       .finally(() => setIsLoading(false));
   };
 
+  const returnLoan = (loanId: string) => {
+    const loan = loans.find((loan) => loan.id === loanId);
+    if (loan && id) {
+      loan.returnedAt = now();
+      updateLoan(loanId, loan).then(() => {
+        fetchLoans(id);
+      });
+    }
+  };
+
   useEffect(() => {
-    fetchUser(id ?? "");
-    fetchLoans(id ?? "");
+    if (id) {
+      fetchUser(id);
+      fetchLoans(id);
+    }
   }, [id]);
-  return <User user={user} isLoading={isLoading} loans={loans} />;
+  return (
+    <User
+      user={user}
+      isLoading={isLoading}
+      loans={loans}
+      returnLoan={returnLoan}
+    />
+  );
 }

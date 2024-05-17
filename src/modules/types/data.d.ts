@@ -1,7 +1,9 @@
+import { ICopy } from "./copy";
 import { IPublication } from "./publication";
+import { IUser } from "./user";
 
 export interface IData {
-    [key: string]: File | string | null | boolean | number | IPublication;
+    [key: string]: File | string | null | boolean | number | IPublication | ICopy | IUser;
   }
   
   export interface IQueryString {

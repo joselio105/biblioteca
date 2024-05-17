@@ -16,9 +16,10 @@ interface Props {
   user: IUser;
   loans: ILoan[];
   isLoading: boolean;
+  returnLoan: (loanId: string) => void;
 }
 
-export function User({ user, loans, isLoading }: Props) {
+export function User({ user, loans, isLoading, returnLoan }: Props) {
   return (
     <>
       <PageHeading>{user.name}</PageHeading>
@@ -54,7 +55,7 @@ export function User({ user, loans, isLoading }: Props) {
                     Devolvido em {getDate(loan.returnedAt)}
                   </div>
                 ) : (
-                  <Button to={`/loanForm/${loan.id}`}>Devolver</Button>
+                  <Button onClick={() => returnLoan(loan.id)}>Devolver</Button>
                 ),
               },
               {
@@ -69,16 +70,19 @@ export function User({ user, loans, isLoading }: Props) {
                       <span className="text-sm text-stone-400">
                         {loan.copy.publication.authorCode}
                       </span>
+                      <span className="text-sm text-stone-400">
+                        {loan.copy.registrationCode}
+                      </span>
                     </div>
                   ) : (
                     "...."
                   ),
               },
               {
-                label: loan.user ? getDate(loan.loan) : "---",
+                label: getDate(loan.loan),
               },
               {
-                label: loan.user ? getDate(loan.return) : "---",
+                label: getDate(loan.returnAt),
               },
             ];
           })}
