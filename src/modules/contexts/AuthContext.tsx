@@ -5,26 +5,28 @@ import {
   IAuthentication,
   ICredentials,
 } from "../types/auth";
+import { login } from "../infra/api/auth";
+import { IUser } from "../types/user";
 
 export const AuthContext = createContext({} as IAuthContextData);
 
 export const AuthContextProvider = ({ children }: IAuthProvider) => {
-  const [isSigned, setIsSigned] = useState(true);
-  const [authentication, setAuthentication] = useState<IAuthentication>({
-    user: {
-      id: "xxx",
-      name: "Monteiro Lobato",
-      email: "lobato@sitio.pp.a",
-      phone: null,
-      isAdmin: true,
-      isActive: true,
-    },
-    expiration: 0,
-    token: "",
-  } as IAuthentication);
+  const [isSigned, setIsSigned] = useState(false);
+  const [authentication, setAuthentication] = useState<IAuthentication>(
+    {} as IAuthentication
+  );
 
   const signIn = async (credentials: ICredentials) => {
-    throw new Error("Função não implementada");
+    return login(credentials).then(({ user, isSigned, message }) => {
+      setAuthentication({
+        user: user ?? ({} as IUser),
+        expiration: 0,
+        token: "",
+      });
+      setIsSigned(isSigned);
+
+      return { user, isSigned, message };
+    });
   };
 
   const signOut = () => {

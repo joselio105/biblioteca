@@ -6,3 +6,11 @@ export interface IUser {
     isActive: boolean
     isAdmin: boolean
 }
+
+export interface IUserForm {
+    name: string
+    email: string
+    phone: string
+    isActive: string
+    isAdmin: string
+}

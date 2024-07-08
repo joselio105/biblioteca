@@ -13,19 +13,20 @@ export function Button({
   to,
   isSecondary = false,
   isLoading = false,
+  className = undefined,
   ...props
 }: Props) {
   const buttonStyle = clsx(
     "min-w-16 p-3 rounded-lg duration-300 border flex items-center justify-center gap-3",
     {
-      "bg-secondary-900 text-primary-200]": !isSecondary,
+      "bg-secondary-900 text-primary-200": !isSecondary,
       "border-secondary-700 hover:bg-secondary-700": !isSecondary,
       "dark:text-secondary-200": !isSecondary,
       "border-secondary-700 text-primary-700": isSecondary,
       "hover:text-secondary-700 dark:hover:text-secondary-300": isSecondary,
       "dark:border-secondary-500 dark:text-primary-300": isSecondary,
     },
-    props.className
+    className
   );
   if (to) {
     return (

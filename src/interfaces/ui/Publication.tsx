@@ -6,19 +6,27 @@ import { IPublication } from "@/modules/types/publication";
 import { Table } from "@/modules/components/Table";
 import { ICopy } from "@/modules/types/copy";
 import { Loading } from "@/modules/components/Loading";
+import { Empty } from "@/modules/components/Empty";
+import { PageNav } from "@/modules/components/PageNav";
+import { Button } from "@/modules/components/Button";
 
 interface Props {
-  publication: IPublication;
+  publication?: IPublication;
   copys: ICopy[];
   isLoading: boolean;
 }
 
 export function Publication({ publication, copys, isLoading }: Props) {
-  return (
+  return publication ? (
     <>
       <PageHeading>{publication.title}</PageHeading>
+      <PageNav>
+        <Button isSecondary to={`/publicationForm/${publication.id}`}>
+          Editar
+        </Button>
+      </PageNav>
       <PageColumns>
-        <TextLabeled label="Autor">{publication.author}</TextLabeled>
+        <TextLabeled label="Autor(es)">{publication.authors}</TextLabeled>
         <TextLabeled label="Código  Cutter">
           {publication.authorCode}
         </TextLabeled>
@@ -34,5 +42,7 @@ export function Publication({ publication, copys, isLoading }: Props) {
       )}
       <PageFooter backTo="/publications" />
     </>
+  ) : (
+    <Empty text="Nenhuma publicação correspondente" />
   );
 }

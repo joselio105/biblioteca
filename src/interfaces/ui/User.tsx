@@ -3,6 +3,7 @@ import { Empty } from "@components/Empty";
 import { Table } from "@components/Table";
 import { Button } from "@components/Button";
 import { Loading } from "@components/Loading";
+import { PageNav } from "@components/PageNav";
 import { PageFooter } from "@components/PageFooter";
 import { PageHeading } from "@components/PageHeading";
 import { PageColumns } from "@components/PageColumns";
@@ -15,12 +16,19 @@ interface Props {
   user: IUser;
   loans: ILoan[];
   isLoading: boolean;
+  returnLoan: (loanId: string) => void;
 }
 
-export function User({ user, loans, isLoading }: Props) {
+export function User({ user, loans, isLoading, returnLoan }: Props) {
   return (
     <>
       <PageHeading>{user.name}</PageHeading>
+      <PageNav>
+        <Button isSecondary to={`/userForm/${user.id}`}>
+          Editar
+        </Button>
+      </PageNav>
+
       <PageColumns>
         <TextLabeled label="Email">{user.email}</TextLabeled>
         <TextLabeled label="Telefone">{user.phone}</TextLabeled>
@@ -47,7 +55,7 @@ export function User({ user, loans, isLoading }: Props) {
                     Devolvido em {getDate(loan.returnedAt)}
                   </div>
                 ) : (
-                  <Button to={`/loanForm/${loan.id}`}>Devolver</Button>
+                  <Button onClick={() => returnLoan(loan.id)}>Devolver</Button>
                 ),
               },
               {
@@ -62,16 +70,19 @@ export function User({ user, loans, isLoading }: Props) {
                       <span className="text-sm text-stone-400">
                         {loan.copy.publication.authorCode}
                       </span>
+                      <span className="text-sm text-stone-400">
+                        {loan.copy.registrationCode}
+                      </span>
                     </div>
                   ) : (
                     "...."
                   ),
               },
               {
-                label: loan.user ? getDate(loan.loan) : "---",
+                label: getDate(loan.loan),
               },
               {
-                label: loan.user ? getDate(loan.return) : "---",
+                label: getDate(loan.returnAt),
               },
             ];
           })}

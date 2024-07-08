@@ -1,41 +1,34 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { UserForm } from "../ui/UserForm";
+import { LoanForm } from "../ui/LoanForm";
 import { findUserById, insertUser, updateUser } from "@infra/api/user";
 import { userResolver as resolver } from "@infra/schemas/user";
-import { useAuth } from "@hooks/useAuth";
-import { IData } from "@/modules/types/data";
 import { IUser, IUserForm } from "@/modules/types/user";
+import { IData } from "@/modules/types/data";
 
-export function UserFormContainer() {
+export function LoanFormContainer() {
   const { id } = useParams();
-  const {
-    authentication: { user: userLogged },
-  } = useAuth();
   const navigate = useNavigate();
-  const [user, setUser] = useState<IUser | undefined>({} as IUser);
+  const [user, setUser] = useState<IUser | undefined>();
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
-  const values = id
+  const values = user
     ? {
-        name: user?.name ?? "",
-        email: user?.email ?? "",
-        phone: user?.phone ?? "",
-        isActive: user?.isActive === true ? "1" : "0",
-        isAdmin: user?.isAdmin === true ? "1" : "0",
+        name: user.name,
+        email: user.email ?? "",
+        phone: user.phone ?? "",
+        isActive: user.isActive ? "1" : "0",
+        isAdmin: user.isAdmin ? "1" : "0",
       }
     : undefined;
   const {
     handleSubmit,
     register,
     formState: { errors },
-    setValue,
-    watch,
-    control,
-  } = useForm<IUserForm>({ resolver, values });
+  } = useForm({ resolver, values });
 
   const insert = (user: IUserForm) => {
     const data: IData = {
@@ -69,8 +62,8 @@ export function UserFormContainer() {
       name: user.name,
       email: user.email,
       phone: user.phone,
-      isActive: user.isActive === "1",
-      isAdmin: user.isAdmin === "1",
+      isActive: user.isActive,
+      isAdmin: user.isAdmin,
     };
 
     setIsLoading(true);
@@ -93,29 +86,23 @@ export function UserFormContainer() {
   };
 
   const fetchUser = (id: string) => {
-    findUserById(id).then(({ id, name, email, phone, isActive, isAdmin }) =>
-      setUser({ id, name, email, phone, isActive, isAdmin })
-    );
+    findUserById(id).then((response) => setUser(response));
   };
 
   useEffect(() => {
     if (id) {
       fetchUser(id);
     }
-  }, [id, isLoading]);
+  }, [id]);
 
   return (
-    <UserForm
+    <LoanForm
       user={user}
-      userLogged={userLogged}
       isLoading={isLoading}
       success={success}
       feedbackMessage={feedbackMessage}
       handleSubmit={handleSubmit(handlerSubmit)}
       registers={register}
-      setValue={setValue}
-      watch={watch}
-      control={control}
       errors={errors}
     />
   );

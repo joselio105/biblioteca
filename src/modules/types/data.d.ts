@@ -1,5 +1,9 @@
+import { ICopy } from "./copy";
+import { IPublication } from "./publication";
+import { IUser } from "./user";
+
 export interface IData {
-    [key: string]: File | string | null; // | boolean | number;
+    [key: string]: File | string | null | boolean | number | IPublication | ICopy | IUser;
   }
   
   export interface IQueryString {
@@ -17,3 +21,5 @@ export interface IData {
     backToOnYes: string;
     id: string;
   }
+
+  export type TLanguage = 'pt' | 'en' | 'es'

@@ -13,7 +13,7 @@ export function UsersContainer() {
     setIsSubmited(true);
     findManyUsers({ query })
       .then((response) => {
-        setUsers(response);
+        setUsers(response.sort((a, b) => a.name.localeCompare(b.name)));
       })
       .finally(() => setIsLoading(false));
   };

@@ -1,6 +1,6 @@
 import { api } from "@utils/fetchApi";
 import { IUser } from "@/modules/types/user";
-import { IQueryString } from "@/modules/types/data";
+import { IData, IQueryString } from "@/modules/types/data";
 
 const endpoint = 'users'
 
@@ -16,6 +16,20 @@ export async function findManyUsers(query?: IQueryString){
     })
 }
 
+export async function findUserByEmail(email: string) {
+    const users = await api.get<IUser[]>(endpoint)
+
+    return users.find(user=>user.email===email)
+}
+
 export async function findUserById(id: string) {
     return api.get<IUser>(`${endpoint}/${id}`)
+}
+
+export async function insertUser(user: IData){
+    return api.post(endpoint, user)
+}
+
+export async function updateUser(user: IData) {
+    return api.put(`${endpoint}/${user.id}`, user)
 }

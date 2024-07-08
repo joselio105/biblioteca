@@ -3,6 +3,7 @@ import { Table } from "@components/Table";
 import { Search } from "@components/Search";
 import { Button } from "@components/Button";
 import { Loading } from "@components/Loading";
+import { PageNav } from "@components/PageNav";
 import { PageHeading } from "@components/PageHeading";
 import { IUser } from "@/modules/types/user";
 
@@ -17,6 +18,11 @@ export function Users({ executeQuery, isLoading, isSubmited, users }: Props) {
   return (
     <>
       <PageHeading>Usuários</PageHeading>
+      <PageNav>
+        <Button isSecondary to="/userForm">
+          Adicionar
+        </Button>
+      </PageNav>
       <Search
         labelText="Usuário"
         placeholder="Preencha os dados do usuário a serem buscados"

@@ -13,7 +13,7 @@ async function get<T>(route: string, queryString = {} as IQueryString, options =
   
     const init: RequestInit = {
       method: 'POST',
-      body: getFormData(data),
+      body: JSON.stringify(data),
       headers,
     };
     return fetch(endpoint, init).then((response) => response.json());
@@ -57,19 +57,19 @@ async function get<T>(route: string, queryString = {} as IQueryString, options =
     return fetch(endpoint, init).then((response) => response.json());
   }
   
-  function getFormData(data: IData): FormData {
-    const formData = new FormData();
+  // function getFormData(data: IData): FormData {
+  //   const formData = new FormData();
   
-    Object.keys(data).forEach((key) => {
-      const value = data[key as keyof IData];
+  //   Object.keys(data).forEach((key) => {
+  //     const value:string|number|boolean = data[key as keyof IData];
   
-      if (value) {
-        formData.append(key, value);
-      }
-    });
+  //     if (value) {
+  //       formData.append(key, value);
+  //     }
+  //   });
   
-    return formData;
-  }
+  //   return formData;
+  // }
   
   function stringfyQueryString(queryString: IQueryString): string {
     const response: string[] = [];
